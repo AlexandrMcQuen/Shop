@@ -20,6 +20,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModel {
+  int get id => throw _privateConstructorUsedError;
   String get accessKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -32,7 +33,7 @@ mixin _$UserModel {
 abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res>;
-  $Res call({String accessKey});
+  $Res call({int id, String accessKey});
 }
 
 /// @nodoc
@@ -45,9 +46,14 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? accessKey = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       accessKey: accessKey == freezed
           ? _value.accessKey
           : accessKey // ignore: cast_nullable_to_non_nullable
@@ -62,7 +68,7 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
           _$_UserModel value, $Res Function(_$_UserModel) then) =
       __$$_UserModelCopyWithImpl<$Res>;
   @override
-  $Res call({String accessKey});
+  $Res call({int id, String accessKey});
 }
 
 /// @nodoc
@@ -77,9 +83,14 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? accessKey = freezed,
   }) {
     return _then(_$_UserModel(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       accessKey: accessKey == freezed
           ? _value.accessKey
           : accessKey // ignore: cast_nullable_to_non_nullable
@@ -91,17 +102,19 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserModel implements _UserModel {
-  _$_UserModel({required this.accessKey});
+  _$_UserModel({required this.id, required this.accessKey});
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
 
   @override
+  final int id;
+  @override
   final String accessKey;
 
   @override
   String toString() {
-    return 'UserModel(accessKey: $accessKey)';
+    return 'UserModel(id: $id, accessKey: $accessKey)';
   }
 
   @override
@@ -109,13 +122,16 @@ class _$_UserModel implements _UserModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserModel &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.accessKey, accessKey));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(accessKey));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(accessKey));
 
   @JsonKey(ignore: true)
   @override
@@ -131,11 +147,14 @@ class _$_UserModel implements _UserModel {
 }
 
 abstract class _UserModel implements UserModel {
-  factory _UserModel({required final String accessKey}) = _$_UserModel;
+  factory _UserModel({required final int id, required final String accessKey}) =
+      _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
 
+  @override
+  int get id;
   @override
   String get accessKey;
   @override
