@@ -5,14 +5,14 @@ part 'colors_model.freezed.dart';
 part 'colors_model.g.dart';
 
 @freezed
-class Colors with _$Colors{
-  factory Colors({
+class ColorsModel with _$ColorsModel{
+  factory ColorsModel({
     required int id,
     required String title,
     required String code
-}) = _Colors;
+}) = _ColorsModel;
 
-  factory Colors.fromJson(Map<String, dynamic> json) => _$ColorsFromJson(json);
+  factory ColorsModel.fromJson(Map<String, dynamic> json) => _$ColorsModelFromJson(json);
 
 }
 

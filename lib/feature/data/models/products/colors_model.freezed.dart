@@ -14,35 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Colors _$ColorsFromJson(Map<String, dynamic> json) {
-  return _Colors.fromJson(json);
+ColorsModel _$ColorsModelFromJson(Map<String, dynamic> json) {
+  return _ColorsModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Colors {
-  dynamic get id => throw _privateConstructorUsedError;
-  dynamic get title => throw _privateConstructorUsedError;
-  dynamic get code => throw _privateConstructorUsedError;
+mixin _$ColorsModel {
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ColorsCopyWith<Colors> get copyWith => throw _privateConstructorUsedError;
+  $ColorsModelCopyWith<ColorsModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ColorsCopyWith<$Res> {
-  factory $ColorsCopyWith(Colors value, $Res Function(Colors) then) =
-      _$ColorsCopyWithImpl<$Res>;
-  $Res call({dynamic id, dynamic title, dynamic code});
+abstract class $ColorsModelCopyWith<$Res> {
+  factory $ColorsModelCopyWith(
+          ColorsModel value, $Res Function(ColorsModel) then) =
+      _$ColorsModelCopyWithImpl<$Res>;
+  $Res call({int id, String title, String code});
 }
 
 /// @nodoc
-class _$ColorsCopyWithImpl<$Res> implements $ColorsCopyWith<$Res> {
-  _$ColorsCopyWithImpl(this._value, this._then);
+class _$ColorsModelCopyWithImpl<$Res> implements $ColorsModelCopyWith<$Res> {
+  _$ColorsModelCopyWithImpl(this._value, this._then);
 
-  final Colors _value;
+  final ColorsModel _value;
   // ignore: unused_field
-  final $Res Function(Colors) _then;
+  final $Res Function(ColorsModel) _then;
 
   @override
   $Res call({
@@ -54,35 +56,38 @@ class _$ColorsCopyWithImpl<$Res> implements $ColorsCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as int,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$$_ColorsCopyWith<$Res> implements $ColorsCopyWith<$Res> {
-  factory _$$_ColorsCopyWith(_$_Colors value, $Res Function(_$_Colors) then) =
-      __$$_ColorsCopyWithImpl<$Res>;
+abstract class _$$_ColorsModelCopyWith<$Res>
+    implements $ColorsModelCopyWith<$Res> {
+  factory _$$_ColorsModelCopyWith(
+          _$_ColorsModel value, $Res Function(_$_ColorsModel) then) =
+      __$$_ColorsModelCopyWithImpl<$Res>;
   @override
-  $Res call({dynamic id, dynamic title, dynamic code});
+  $Res call({int id, String title, String code});
 }
 
 /// @nodoc
-class __$$_ColorsCopyWithImpl<$Res> extends _$ColorsCopyWithImpl<$Res>
-    implements _$$_ColorsCopyWith<$Res> {
-  __$$_ColorsCopyWithImpl(_$_Colors _value, $Res Function(_$_Colors) _then)
-      : super(_value, (v) => _then(v as _$_Colors));
+class __$$_ColorsModelCopyWithImpl<$Res> extends _$ColorsModelCopyWithImpl<$Res>
+    implements _$$_ColorsModelCopyWith<$Res> {
+  __$$_ColorsModelCopyWithImpl(
+      _$_ColorsModel _value, $Res Function(_$_ColorsModel) _then)
+      : super(_value, (v) => _then(v as _$_ColorsModel));
 
   @override
-  _$_Colors get _value => super._value as _$_Colors;
+  _$_ColorsModel get _value => super._value as _$_ColorsModel;
 
   @override
   $Res call({
@@ -90,39 +95,48 @@ class __$$_ColorsCopyWithImpl<$Res> extends _$ColorsCopyWithImpl<$Res>
     Object? title = freezed,
     Object? code = freezed,
   }) {
-    return _then(_$_Colors(
-      id: id == freezed ? _value.id : id,
-      title: title == freezed ? _value.title : title,
-      code: code == freezed ? _value.code : code,
+    return _then(_$_ColorsModel(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Colors implements _Colors {
-  _$_Colors({required this.id, required this.title, required this.code});
+class _$_ColorsModel implements _ColorsModel {
+  _$_ColorsModel({required this.id, required this.title, required this.code});
 
-  factory _$_Colors.fromJson(Map<String, dynamic> json) =>
-      _$$_ColorsFromJson(json);
+  factory _$_ColorsModel.fromJson(Map<String, dynamic> json) =>
+      _$$_ColorsModelFromJson(json);
 
   @override
-  final dynamic id;
+  final int id;
   @override
-  final dynamic title;
+  final String title;
   @override
-  final dynamic code;
+  final String code;
 
   @override
   String toString() {
-    return 'Colors(id: $id, title: $title, code: $code)';
+    return 'ColorsModel(id: $id, title: $title, code: $code)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Colors &&
+            other is _$_ColorsModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.code, code));
@@ -138,33 +152,34 @@ class _$_Colors implements _Colors {
 
   @JsonKey(ignore: true)
   @override
-  _$$_ColorsCopyWith<_$_Colors> get copyWith =>
-      __$$_ColorsCopyWithImpl<_$_Colors>(this, _$identity);
+  _$$_ColorsModelCopyWith<_$_ColorsModel> get copyWith =>
+      __$$_ColorsModelCopyWithImpl<_$_ColorsModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ColorsToJson(
+    return _$$_ColorsModelToJson(
       this,
     );
   }
 }
 
-abstract class _Colors implements Colors {
-  factory _Colors(
-      {required final dynamic id,
-      required final dynamic title,
-      required final dynamic code}) = _$_Colors;
+abstract class _ColorsModel implements ColorsModel {
+  factory _ColorsModel(
+      {required final int id,
+      required final String title,
+      required final String code}) = _$_ColorsModel;
 
-  factory _Colors.fromJson(Map<String, dynamic> json) = _$_Colors.fromJson;
+  factory _ColorsModel.fromJson(Map<String, dynamic> json) =
+      _$_ColorsModel.fromJson;
 
   @override
-  dynamic get id;
+  int get id;
   @override
-  dynamic get title;
+  String get title;
   @override
-  dynamic get code;
+  String get code;
   @override
   @JsonKey(ignore: true)
-  _$$_ColorsCopyWith<_$_Colors> get copyWith =>
+  _$$_ColorsModelCopyWith<_$_ColorsModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
