@@ -11,6 +11,7 @@ _$_BasketItemModel _$$_BasketItemModelFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int,
       title: json['title'] as String,
       quantity: json['quantity'] as int,
+      items: ItemModel.fromJson(json['items'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_BasketItemModelToJson(_$_BasketItemModel instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$_BasketItemModelToJson(_$_BasketItemModel instance) =>
       'id': instance.id,
       'title': instance.title,
       'quantity': instance.quantity,
+      'items': instance.items,
     };

@@ -1,14 +1,19 @@
 import 'package:shop/feature/data/mappers/mappers.dart';
+import 'package:shop/feature/data/mappers/products/items_mapper.dart';
 import 'package:shop/feature/data/models/baskets/basket_item_model.dart';
 import 'package:shop/feature/domain/entities/baskets/basket_item_entity.dart';
 
 class BasketsItemMapper extends Mappers<BasketItemModel, BasketItemEntity>{
-  Bas
+  final ItemsMapper itemsMapper;
+
+  BasketsItemMapper({required this.itemsMapper});
 
   @override
   BasketItemEntity map(BasketItemModel entity) {
-    // TODO: implement map
-    throw UnimplementedError();
+    return BasketItemEntity(
+        id: entity.id,
+        title: entity.title,
+        quantity: entity.quantity,
+        item: itemsMapper.map(entity.items));
   }
-
 }

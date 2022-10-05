@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:shop/feature/data/models/products/items_model.dart';
+import 'package:shop/feature/data/models/baskets/basket_item_model.dart';
 import 'package:shop/feature/data/models/user/users_model.dart';
 
 part 'baskets_model.freezed.dart';
@@ -9,7 +9,7 @@ part 'baskets_model.g.dart';
 class BasketModel with _$BasketModel{
   factory BasketModel({
     required int id,
-    required List<ItemModel> items,
+    required List<BasketItemModel> items,
     required UserModel user
 }) = _BasketModel;
 

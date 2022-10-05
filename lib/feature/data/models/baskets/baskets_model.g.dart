@@ -10,7 +10,7 @@ _$_BasketModel _$$_BasketModelFromJson(Map<String, dynamic> json) =>
     _$_BasketModel(
       id: json['id'] as int,
       items: (json['items'] as List<dynamic>)
-          .map((e) => ItemModel.fromJson(e as Map<String, dynamic>))
+          .map((e) => BasketItemModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
     );

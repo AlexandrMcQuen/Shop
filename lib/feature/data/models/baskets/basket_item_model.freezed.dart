@@ -23,6 +23,7 @@ mixin _$BasketItemModel {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   int get quantity => throw _privateConstructorUsedError;
+  ItemModel get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,9 @@ abstract class $BasketItemModelCopyWith<$Res> {
   factory $BasketItemModelCopyWith(
           BasketItemModel value, $Res Function(BasketItemModel) then) =
       _$BasketItemModelCopyWithImpl<$Res>;
-  $Res call({int id, String title, int quantity});
+  $Res call({int id, String title, int quantity, ItemModel items});
+
+  $ItemModelCopyWith<$Res> get items;
 }
 
 /// @nodoc
@@ -52,6 +55,7 @@ class _$BasketItemModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? quantity = freezed,
+    Object? items = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -66,7 +70,18 @@ class _$BasketItemModelCopyWithImpl<$Res>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as ItemModel,
     ));
+  }
+
+  @override
+  $ItemModelCopyWith<$Res> get items {
+    return $ItemModelCopyWith<$Res>(_value.items, (value) {
+      return _then(_value.copyWith(items: value));
+    });
   }
 }
 
@@ -77,7 +92,10 @@ abstract class _$$_BasketItemModelCopyWith<$Res>
           _$_BasketItemModel value, $Res Function(_$_BasketItemModel) then) =
       __$$_BasketItemModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, int quantity});
+  $Res call({int id, String title, int quantity, ItemModel items});
+
+  @override
+  $ItemModelCopyWith<$Res> get items;
 }
 
 /// @nodoc
@@ -96,6 +114,7 @@ class __$$_BasketItemModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? quantity = freezed,
+    Object? items = freezed,
   }) {
     return _then(_$_BasketItemModel(
       id: id == freezed
@@ -110,6 +129,10 @@ class __$$_BasketItemModelCopyWithImpl<$Res>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as ItemModel,
     ));
   }
 }
@@ -118,7 +141,10 @@ class __$$_BasketItemModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_BasketItemModel implements _BasketItemModel {
   _$_BasketItemModel(
-      {required this.id, required this.title, required this.quantity});
+      {required this.id,
+      required this.title,
+      required this.quantity,
+      required this.items});
 
   factory _$_BasketItemModel.fromJson(Map<String, dynamic> json) =>
       _$$_BasketItemModelFromJson(json);
@@ -129,10 +155,12 @@ class _$_BasketItemModel implements _BasketItemModel {
   final String title;
   @override
   final int quantity;
+  @override
+  final ItemModel items;
 
   @override
   String toString() {
-    return 'BasketItemModel(id: $id, title: $title, quantity: $quantity)';
+    return 'BasketItemModel(id: $id, title: $title, quantity: $quantity, items: $items)';
   }
 
   @override
@@ -142,7 +170,8 @@ class _$_BasketItemModel implements _BasketItemModel {
             other is _$_BasketItemModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.quantity, quantity));
+            const DeepCollectionEquality().equals(other.quantity, quantity) &&
+            const DeepCollectionEquality().equals(other.items, items));
   }
 
   @JsonKey(ignore: true)
@@ -151,7 +180,8 @@ class _$_BasketItemModel implements _BasketItemModel {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(quantity));
+      const DeepCollectionEquality().hash(quantity),
+      const DeepCollectionEquality().hash(items));
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +200,8 @@ abstract class _BasketItemModel implements BasketItemModel {
   factory _BasketItemModel(
       {required final int id,
       required final String title,
-      required final int quantity}) = _$_BasketItemModel;
+      required final int quantity,
+      required final ItemModel items}) = _$_BasketItemModel;
 
   factory _BasketItemModel.fromJson(Map<String, dynamic> json) =
       _$_BasketItemModel.fromJson;
@@ -181,6 +212,8 @@ abstract class _BasketItemModel implements BasketItemModel {
   String get title;
   @override
   int get quantity;
+  @override
+  ItemModel get items;
   @override
   @JsonKey(ignore: true)
   _$$_BasketItemModelCopyWith<_$_BasketItemModel> get copyWith =>
