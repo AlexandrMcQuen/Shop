@@ -7,5 +7,5 @@ abstract class BasketRepo{
 
   Future deleteItem({required int itemId});
 
-  Future changeQuantity({required int quantity});
+  Future changeQuantity({required int quantity, required int itemId});
 }

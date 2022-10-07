@@ -19,9 +19,9 @@ class UserReps implements UsersRepo{
   Future<UserEntity> getUser() async {
     try{
       var request = await http.get(Uri.parse('$_baseUrl/api/users/accessKey'));
-      var jsonResponse = json.decode(request.body);
+      var jsonRequest = json.decode(request.body);
 
-      final response = UserModel.fromJson(jsonResponse);
+      final response = UserModel.fromJson(jsonRequest);
       final user = userMapper.map(response);
       await store.setAccessKey(user.accessKey);
       return user;

@@ -17,8 +17,8 @@ class ProductRep implements ProductsRep{
   Future<ItemEntity> getProducts({required id}) async{
     try{
       var request = await http.get(Uri.parse('$_baseUrl/api/products/$id'));
-      var jsonResponse = json.decode(request.body);
-      final response = ItemModel.fromJson(jsonResponse);
+      var jsonRequest = json.decode(request.body);
+      final response = ItemModel.fromJson(jsonRequest);
       final item = itemsMapper.map(response);
       return item;
     } catch(e){
