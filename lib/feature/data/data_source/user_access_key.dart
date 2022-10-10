@@ -5,7 +5,7 @@ mixin UserAccessKey on BaseStore{
   String? getAccessKey(){
     return sharedPreferences.getString(accessKey);
   }
-  Future setAccessKey(String string){
-    return sharedPreferences.setString(accessKey, string);
+  Future setAccessKey(String? string){
+    return sharedPreferences.setString(accessKey, '$string');
   }
 }

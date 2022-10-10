@@ -13,17 +13,18 @@ class UserReps implements UsersRepo{
   final _baseUrl = 'https://vue-study.skillbox.cc';
   final Store store;
 
-  UserReps({required this.store, required this.userMapper});
+  UserReps(this.store, this.userMapper);
 
   @override
-  Future<UserEntity> getUser() async {
+  Future<UserEntity?> getUser() async {
     try{
       var request = await http.get(Uri.parse('$_baseUrl/api/users/accessKey'));
       var jsonRequest = json.decode(request.body);
-
       final response = UserModel.fromJson(jsonRequest);
+      print(response);
       final user = userMapper.map(response);
       await store.setAccessKey(user.accessKey);
+      print('$user');
       return user;
     } catch (e){
       throw Error();
