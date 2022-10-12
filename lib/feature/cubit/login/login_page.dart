@@ -9,9 +9,6 @@ import 'package:flutter/material.dart';
 class UserLoginPage extends StatelessWidget {
   const UserLoginPage({Key? key}) : super(key: key);
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -39,29 +36,57 @@ class _LoginPageState extends State<LoginPage> {
           return Scaffold(
             backgroundColor: Colors.indigo[400],
             body: Column(
+
+
               children: [
                 const LoginWidget(),
-                const SizedBox(height: 20,),
-                ElevatedButton(
-                    onPressed: (){
-                      context.read<UserLoginCubit>().fetchLogin();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Two()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(200, 50),
-                        backgroundColor: Colors.indigo[900],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)
-                        )
-                    ),
-                    child: Text(
-                        'Sign in',
-                        style:  TextStyle(
-                            color: Colors.indigo[100],
-                            fontSize: 30)))
+                const SizedBox(height: 30,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                        onPressed: (){
+                          context.read<UserLoginCubit>().fetchLogin();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Two()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(200, 50),
+                            backgroundColor: Colors.indigo[900],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )
+                        ),
+                        child: Text(
+                            'Sign in',
+                            style:  TextStyle(
+                                color: Colors.indigo[100],
+                                fontSize: 30))),
+                    const SizedBox(width: 30,),
+                    ElevatedButton(
+                        onPressed: (){
+                          context.read<UserLoginCubit>().fetchLogin();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Two()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(200, 50),
+                            backgroundColor: Colors.indigo[900],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )
+                        ),
+                        child: Text(
+                            'Sign up',
+                            style:  TextStyle(
+                                color: Colors.indigo[100],
+                                fontSize: 30))),
+                  ],
+                )
               ],
             ),
           );
