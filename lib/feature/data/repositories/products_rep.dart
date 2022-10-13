@@ -7,11 +7,11 @@ import '../../domain/entities/products/item_entity.dart';
 import '../mappers/products/items_mapper.dart';
 import '../models/products/items_model.dart';
 
-class ProductRep implements ProductsRep{
+class ProductRepData implements ProductRep{
   final _baseUrl = 'https://vue-study.skillbox.cc';
   final ItemsMapper itemsMapper;
 
-  ProductRep({required this.itemsMapper});
+  ProductRepData({required this.itemsMapper});
 
   @override
   Future<ItemEntity> getProducts({required id}) async{

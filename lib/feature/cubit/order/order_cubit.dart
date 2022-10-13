@@ -43,7 +43,7 @@ class LoadedOrderState extends OrderState{
 }
 
 class OrderCubit extends Cubit<OrderState>{
-  final OrderRepo orderRep;
+  final OrderRepData orderRep;
 
   OrderCubit(this.orderRep) : super(const LoadingOrderState());
 

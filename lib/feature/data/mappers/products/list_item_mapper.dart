@@ -14,7 +14,6 @@ class ListItemMapper extends Mappers<ListItemModel, ListItemEntity>{
   ListItemEntity map(ListItemModel entity) {
     return ListItemEntity(
         items: itemsMapper.mapList(entity.items),
-        info: infoMapper.map(entity.info)
     );
   }
 

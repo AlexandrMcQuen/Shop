@@ -8,12 +8,12 @@ import 'package:shop/feature/domain/repositories/users_rep.dart';
 
 import '../data_source/store.dart';
 
-class UserReps implements UsersRepo{
+class UserRepData implements UserRep{
   final UserMapper userMapper;
   final _baseUrl = 'https://vue-study.skillbox.cc';
   final Store store;
 
-  UserReps(this.store, this.userMapper);
+  UserRepData(this.store, this.userMapper);
 
   @override
   Future<UserEntity?> getUser() async {

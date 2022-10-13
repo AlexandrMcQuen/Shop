@@ -5,11 +5,11 @@ import 'item_entity.dart';
 
 class ListItemEntity extends Equatable{
   final List<ItemEntity> items;
-  final InfoEntity info;
 
-  const ListItemEntity({required this.items, required this.info});
+
+  const ListItemEntity({required this.items, });
 
   @override
 
-  List<Object?> get props => [items, info];
+  List<Object?> get props => [items];
 }

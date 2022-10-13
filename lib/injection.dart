@@ -11,9 +11,13 @@ import 'package:shop/feature/data/mappers/products/items_mapper.dart';
 import 'package:shop/feature/data/mappers/products/list_item_mapper.dart';
 import 'package:shop/feature/data/mappers/user/user_mapper.dart';
 import 'package:shop/feature/data/repositories/product_list_rep.dart';
+import 'package:shop/feature/data/repositories/products_rep.dart';
 import 'package:shop/feature/data/repositories/users_rep.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop/feature/domain/repositories/product_list_rep.dart';
+import 'package:shop/feature/domain/repositories/products_rep.dart';
+
+import 'feature/domain/repositories/users_rep.dart';
 
 Future<Widget> injection(Widget app) async{
   final store = Store(await SharedPreferences.getInstance());
@@ -28,16 +32,21 @@ Future<Widget> injection(Widget app) async{
   final listItemMapper = ListItemMapper(itemsMapper: itemsMapper, infoMapper: infoMapper);
   final categoriesListMapper = CategoriesListMapper(categoriesMapper: categoriesMapper);
 
-  final userRep = UserReps(store, userMapper);
-  final itemListRep = ProductListRepo(categoriesListMapper: categoriesListMapper, listItemMapper: listItemMapper);
+  final productRep = ProductRepData(itemsMapper: itemsMapper);
+  final userRep = UserRepData(store, userMapper);
+  final itemListRep = ProductListRepData(categoriesListMapper: categoriesListMapper, listItemMapper: listItemMapper);
 
   return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<UserReps>(
+        RepositoryProvider<UserRep>(
         create: (_) => userRep
       ),
         RepositoryProvider<ProductListRep>(
-            create: (_) => itemListRep)
+            create: (_) => itemListRep
+        ),
+        RepositoryProvider<ProductRep>(
+            create: (_) => productRep
+        )
       ],
       child: app);
 }

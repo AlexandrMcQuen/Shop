@@ -17,7 +17,7 @@ class CategoryWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10)
       ),
       child: Center(
-        child: Text(categoriesEntity.title,
+        child: Text("${categoriesEntity.id}",
         style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
       ),
     );

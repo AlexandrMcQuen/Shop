@@ -9,12 +9,12 @@ import 'package:http/http.dart' as http;
 import '../data_source/store.dart';
 import '../models/baskets/baskets_model.dart';
 
-class BasketRep implements BasketRepo{
+class BasketRepData implements BasketRep{
   final _baseUrl = 'https://vue-study.skillbox.cc';
   final BasketMapper basketMapper;
   final Store _store;
 
-  BasketRep(this._store, {required this.basketMapper});
+  BasketRepData(this._store, {required this.basketMapper});
   
   @override
   Future addItem({required int itemId}) async{

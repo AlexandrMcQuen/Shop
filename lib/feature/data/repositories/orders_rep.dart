@@ -11,7 +11,7 @@ import 'package:shop/feature/domain/repositories/orders_rep.dart';
 
 import '../models/order/orders_model.dart';
 
-class OrderRepo extends OrdersRep{
+class OrderRepData extends OrderRep{
   late final OrderStatusMapper orderStatusMapper;
   final _baseUrl = 'https://vue-study.skillbox.cc';
   late final Store _store;

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shop/feature/cubit/catalog/catalog_page.dart';
+
+import 'package:shop/feature/cubit/item/item_page.dart';
 import 'package:shop/feature/data/data_source/store.dart';
 import 'package:shop/feature/data/mappers/products/colors_mapper.dart';
 import 'package:shop/feature/data/mappers/products/items_mapper.dart';
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: CategoryPage(),
+      home: CatalogPage(id: '1'),
     );
   }
 }

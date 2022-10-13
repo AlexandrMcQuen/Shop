@@ -60,7 +60,8 @@ class CatalogCubit extends Cubit<CatalogState>{
   Future<void> fetchCatalog({required id, required page}) async{
     emit(const LoadingCatalogState());
     try{
-      final resultCatalog = await productListRep.getAll(id: id, page: page);
+      final resultCatalog = await productListRep.getAll(id: id);
+      emit(LoadedCatalogState(loadedCatalog: resultCatalog));
     } catch(e){
       emit(const ErrorCatalogState());
     }

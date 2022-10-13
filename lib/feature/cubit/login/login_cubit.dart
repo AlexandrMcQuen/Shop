@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:shop/feature/data/repositories/users_rep.dart';
 import 'package:bloc/bloc.dart';
 
 import '../../domain/entities/user/user_entity.dart';
+import '../../domain/repositories/users_rep.dart';
 
 abstract class UserLoginState extends Equatable{
   const UserLoginState();
@@ -31,7 +31,7 @@ class UserLoginLoaded extends UserLoginState{
 class UserLoginCubit extends Cubit<UserLoginState>{
   UserLoginCubit(this.userReps) : super(const UserLoginLoading());
   
-  final UserReps? userReps;
+  final UserRep? userReps;
   
   Future<UserEntity?> fetchLogin() async{
     emit(const UserLoginLoading());

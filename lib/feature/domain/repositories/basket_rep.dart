@@ -1,6 +1,6 @@
 import '../entities/baskets/basket_entity.dart';
 
-abstract class BasketRepo{
+abstract class BasketRep{
   Future<BasketEntity> getBasket();
 
   Future addItem({required int itemId});

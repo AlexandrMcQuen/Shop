@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop/feature/domain/entities/products/item_entity.dart';
 
 import '../../data/repositories/products_rep.dart';
+import '../../domain/repositories/products_rep.dart';
 
 abstract class ItemState extends Equatable{
   const ItemState();

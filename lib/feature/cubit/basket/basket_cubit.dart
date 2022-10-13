@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:shop/feature/data/repositories/basket_rep.dart';
 import 'package:shop/feature/domain/entities/baskets/basket_entity.dart';
 
 import '../../data/data_source/constants.dart';
+import '../../domain/repositories/basket_rep.dart';
 
 abstract class BasketState extends Equatable{
   const BasketState();
