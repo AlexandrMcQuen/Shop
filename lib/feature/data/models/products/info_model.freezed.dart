@@ -21,7 +21,8 @@ InfoModel _$InfoModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$InfoModel {
   int get page => throw _privateConstructorUsedError;
-  int get count => throw _privateConstructorUsedError;
+  int get pages => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ mixin _$InfoModel {
 abstract class $InfoModelCopyWith<$Res> {
   factory $InfoModelCopyWith(InfoModel value, $Res Function(InfoModel) then) =
       _$InfoModelCopyWithImpl<$Res>;
-  $Res call({int page, int count});
+  $Res call({int page, int pages, int total});
 }
 
 /// @nodoc
@@ -47,16 +48,21 @@ class _$InfoModelCopyWithImpl<$Res> implements $InfoModelCopyWith<$Res> {
   @override
   $Res call({
     Object? page = freezed,
-    Object? count = freezed,
+    Object? pages = freezed,
+    Object? total = freezed,
   }) {
     return _then(_value.copyWith(
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      count: count == freezed
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
+      pages: pages == freezed
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as int,
+      total: total == freezed
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -68,7 +74,7 @@ abstract class _$$_InfoModelCopyWith<$Res> implements $InfoModelCopyWith<$Res> {
           _$_InfoModel value, $Res Function(_$_InfoModel) then) =
       __$$_InfoModelCopyWithImpl<$Res>;
   @override
-  $Res call({int page, int count});
+  $Res call({int page, int pages, int total});
 }
 
 /// @nodoc
@@ -84,16 +90,21 @@ class __$$_InfoModelCopyWithImpl<$Res> extends _$InfoModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? page = freezed,
-    Object? count = freezed,
+    Object? pages = freezed,
+    Object? total = freezed,
   }) {
     return _then(_$_InfoModel(
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      count: count == freezed
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
+      pages: pages == freezed
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as int,
+      total: total == freezed
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -102,7 +113,7 @@ class __$$_InfoModelCopyWithImpl<$Res> extends _$InfoModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_InfoModel implements _InfoModel {
-  _$_InfoModel({required this.page, required this.count});
+  _$_InfoModel({required this.page, required this.pages, required this.total});
 
   factory _$_InfoModel.fromJson(Map<String, dynamic> json) =>
       _$$_InfoModelFromJson(json);
@@ -110,11 +121,13 @@ class _$_InfoModel implements _InfoModel {
   @override
   final int page;
   @override
-  final int count;
+  final int pages;
+  @override
+  final int total;
 
   @override
   String toString() {
-    return 'InfoModel(page: $page, count: $count)';
+    return 'InfoModel(page: $page, pages: $pages, total: $total)';
   }
 
   @override
@@ -123,7 +136,8 @@ class _$_InfoModel implements _InfoModel {
         (other.runtimeType == runtimeType &&
             other is _$_InfoModel &&
             const DeepCollectionEquality().equals(other.page, page) &&
-            const DeepCollectionEquality().equals(other.count, count));
+            const DeepCollectionEquality().equals(other.pages, pages) &&
+            const DeepCollectionEquality().equals(other.total, total));
   }
 
   @JsonKey(ignore: true)
@@ -131,7 +145,8 @@ class _$_InfoModel implements _InfoModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(count));
+      const DeepCollectionEquality().hash(pages),
+      const DeepCollectionEquality().hash(total));
 
   @JsonKey(ignore: true)
   @override
@@ -147,8 +162,10 @@ class _$_InfoModel implements _InfoModel {
 }
 
 abstract class _InfoModel implements InfoModel {
-  factory _InfoModel({required final int page, required final int count}) =
-      _$_InfoModel;
+  factory _InfoModel(
+      {required final int page,
+      required final int pages,
+      required final int total}) = _$_InfoModel;
 
   factory _InfoModel.fromJson(Map<String, dynamic> json) =
       _$_InfoModel.fromJson;
@@ -156,7 +173,9 @@ abstract class _InfoModel implements InfoModel {
   @override
   int get page;
   @override
-  int get count;
+  int get pages;
+  @override
+  int get total;
   @override
   @JsonKey(ignore: true)
   _$$_InfoModelCopyWith<_$_InfoModel> get copyWith =>

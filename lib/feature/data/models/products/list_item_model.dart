@@ -10,6 +10,7 @@ part 'list_item_model.g.dart';
 class ListItemModel with _$ListItemModel{
   factory ListItemModel({
     required List<ItemModel> items,
+    required InfoModel info
 }) = _ListItemModel;
 
   factory ListItemModel.fromJson(Map<String, dynamic> json) => _$ListItemModelFromJson(json);

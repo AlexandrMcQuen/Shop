@@ -7,7 +7,8 @@ part 'info_model.g.dart';
 class InfoModel with _$InfoModel{
   factory InfoModel({
     required int page,
-    required int count
+    required int pages,
+    required int total
 }) = _InfoModel;
 
   factory InfoModel.fromJson(Map<String, dynamic> json) => _$InfoModelFromJson(json);

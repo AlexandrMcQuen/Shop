@@ -21,6 +21,7 @@ ListItemModel _$ListItemModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListItemModel {
   List<ItemModel> get items => throw _privateConstructorUsedError;
+  InfoModel get info => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,9 @@ abstract class $ListItemModelCopyWith<$Res> {
   factory $ListItemModelCopyWith(
           ListItemModel value, $Res Function(ListItemModel) then) =
       _$ListItemModelCopyWithImpl<$Res>;
-  $Res call({List<ItemModel> items});
+  $Res call({List<ItemModel> items, InfoModel info});
+
+  $InfoModelCopyWith<$Res> get info;
 }
 
 /// @nodoc
@@ -48,13 +51,25 @@ class _$ListItemModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? items = freezed,
+    Object? info = freezed,
   }) {
     return _then(_value.copyWith(
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ItemModel>,
+      info: info == freezed
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as InfoModel,
     ));
+  }
+
+  @override
+  $InfoModelCopyWith<$Res> get info {
+    return $InfoModelCopyWith<$Res>(_value.info, (value) {
+      return _then(_value.copyWith(info: value));
+    });
   }
 }
 
@@ -65,7 +80,10 @@ abstract class _$$_ListItemModelCopyWith<$Res>
           _$_ListItemModel value, $Res Function(_$_ListItemModel) then) =
       __$$_ListItemModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<ItemModel> items});
+  $Res call({List<ItemModel> items, InfoModel info});
+
+  @override
+  $InfoModelCopyWith<$Res> get info;
 }
 
 /// @nodoc
@@ -82,12 +100,17 @@ class __$$_ListItemModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? items = freezed,
+    Object? info = freezed,
   }) {
     return _then(_$_ListItemModel(
       items: items == freezed
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ItemModel>,
+      info: info == freezed
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as InfoModel,
     ));
   }
 }
@@ -95,7 +118,8 @@ class __$$_ListItemModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ListItemModel implements _ListItemModel {
-  _$_ListItemModel({required final List<ItemModel> items}) : _items = items;
+  _$_ListItemModel({required final List<ItemModel> items, required this.info})
+      : _items = items;
 
   factory _$_ListItemModel.fromJson(Map<String, dynamic> json) =>
       _$$_ListItemModelFromJson(json);
@@ -108,8 +132,11 @@ class _$_ListItemModel implements _ListItemModel {
   }
 
   @override
+  final InfoModel info;
+
+  @override
   String toString() {
-    return 'ListItemModel(items: $items)';
+    return 'ListItemModel(items: $items, info: $info)';
   }
 
   @override
@@ -117,13 +144,16 @@ class _$_ListItemModel implements _ListItemModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListItemModel &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality().equals(other.info, info));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(info));
 
   @JsonKey(ignore: true)
   @override
@@ -139,14 +169,17 @@ class _$_ListItemModel implements _ListItemModel {
 }
 
 abstract class _ListItemModel implements ListItemModel {
-  factory _ListItemModel({required final List<ItemModel> items}) =
-      _$_ListItemModel;
+  factory _ListItemModel(
+      {required final List<ItemModel> items,
+      required final InfoModel info}) = _$_ListItemModel;
 
   factory _ListItemModel.fromJson(Map<String, dynamic> json) =
       _$_ListItemModel.fromJson;
 
   @override
   List<ItemModel> get items;
+  @override
+  InfoModel get info;
   @override
   @JsonKey(ignore: true)
   _$$_ListItemModelCopyWith<_$_ListItemModel> get copyWith =>

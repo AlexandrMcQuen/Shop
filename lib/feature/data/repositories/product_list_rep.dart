@@ -34,10 +34,12 @@ class ProductListRepData extends ProductListRep{
   }
 
   @override
-  Future<ListItemEntity> getAll({required id}) async{
+  Future<ListItemEntity> getAll({required page, required id}) async{
     try{
       var request = await http.get(Uri.https(_baseUrl, '/api/products', <String, String>{
         'categoryId': id,
+        'page': page.toString(),
+        'limit': 5.toString()
       }));
       var jsonRequest = json.decode(request.body);
       final response = ListItemModel.fromJson(jsonRequest);

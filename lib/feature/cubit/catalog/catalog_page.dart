@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop/feature/cubit/catalog/catalog_cubit.dart';
 import 'package:shop/feature/domain/entities/products/item_entity.dart';
 import 'package:shop/feature/domain/repositories/product_list_rep.dart';
-
-import '../../ui/item/item_card.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class CatalogPage extends StatelessWidget {
   final String id;
@@ -17,7 +16,7 @@ class CatalogPage extends StatelessWidget {
     return MultiBlocProvider(
         providers: [BlocProvider(
             create: (_) => CatalogCubit(context.read<ProductListRep>()))],
-        child: CatalogWidget(id: id,));
+        child: CatalogWidget(id: id));
   }
 }
 
@@ -32,45 +31,65 @@ class CatalogWidget extends StatefulWidget {
 
 class _CatalogWidgetState extends State<CatalogWidget> {
 
+  final PagingController<int, ItemEntity> _pagingController = PagingController(firstPageKey: 1);
+
   @override
   void initState() {
-    context.read<CatalogCubit>().fetchCatalog(id: widget.id, page: 1);
+    _pagingController.addPageRequestListener((pageKey) {
+      context.read<CatalogCubit>().fetchCatalog(id: widget.id, page: pageKey);
+    });
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Catalog'),
       ),
-      body: BlocBuilder<CatalogCubit, CatalogState>(
-        builder: (context, state) {
-          if(state is LoadedCatalogState){
-            return ListView.separated(
-                itemBuilder: (BuildContext context, index){
-                  return CardWidget(item: state.loadedCatalog.items[index]);
-                },
-                separatorBuilder: (context, index){
-                  return const Divider(height: 0,);
-                },
-                itemCount: state.loadedCatalog.items.length);
-          }
-          if (state is ErrorCatalogState){
-            return const Text('Error');
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
-      ),
+      body: BlocConsumer<CatalogCubit, CatalogState>(
+          builder: (context, state){
+            return CupertinoScrollbar(
+                child: CustomScrollView(
+                  slivers: [
+                    PagedSliverList.separated(
+                        pagingController: _pagingController,
+                        builderDelegate: PagedChildBuilderDelegate<ItemEntity>(
+                            itemBuilder: (BuildContext context, items, index){
+                              return Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: ListItem(
+                                    items: items
+                                  ),);
+                            }),
+                        separatorBuilder: (context, index){
+                          return const SizedBox(height: 10,);
+                        })
+                  ],
+                ));
+          },
+          listener: (context, state) async{
+            if (state is LoadedCatalogState) {
+              if (state.loadedCatalog.info.page ==
+                  state.loadedCatalog.info.pages) {
+                _pagingController.appendLastPage(state.loadedCatalog.items);
+              } else {
+                _pagingController.appendPage(state.loadedCatalog.items,
+                    state.loadedCatalog.info.page + 1);
+              }
+            }
+          })
     );
   }
 }
 
-class CardWidget extends StatelessWidget {
-  final ItemEntity item;
-  const CardWidget({Key? key, required this.item}) : super(key: key);
+class ListItem extends StatelessWidget {
+  final ItemEntity items;
+
+  const ListItem({Key? key, required this. items}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -84,17 +103,42 @@ class CardWidget extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            Text("${item.id}",
+            Text("${items.id}",
               style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-            Text(item.title,
+            Text(items.title,
               style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-            Text("${item.price}",
+            Text("${items.price}",
               style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-            Text(item.image.file.url,
+            Text(items.image.file.url,
               style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
           ],
         ),
       ),
-    );;
+    );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

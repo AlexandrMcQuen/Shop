@@ -7,6 +7,8 @@ class InfoMapper extends Mappers<InfoModel, InfoEntity>{
   InfoEntity map(InfoModel entity) {
     return InfoEntity(
         page: entity.page,
-        count: entity.count);
+        pages: entity.pages,
+        total: entity.total,
+        );
   }
 }

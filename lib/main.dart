@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: CatalogPage(id: '1'),
+      home: CatalogPage(id: ''),
     );
   }
 }
