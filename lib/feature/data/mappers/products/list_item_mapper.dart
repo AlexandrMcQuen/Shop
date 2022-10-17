@@ -11,10 +11,10 @@ class ListItemMapper extends Mappers<ListItemModel, ListItemEntity>{
   ListItemMapper({required this.itemsMapper, required this.infoMapper});
 
   @override
-  ListItemEntity map(ListItemModel entity) {
+  ListItemEntity? map(ListItemModel? entity) {
     return ListItemEntity(
-        items: itemsMapper.mapList(entity.items),
-        info: infoMapper.map(entity.info),
+        items: itemsMapper.mapList(entity?.items),
+        info: infoMapper.map(entity?.info),
     );
   }
 }

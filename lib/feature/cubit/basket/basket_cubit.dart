@@ -5,6 +5,7 @@ import 'package:shop/feature/domain/entities/baskets/basket_entity.dart';
 import '../../data/data_source/constants.dart';
 import '../../domain/repositories/basket_rep.dart';
 
+
 abstract class BasketState extends Equatable{
   const BasketState();
 
@@ -25,7 +26,7 @@ class ErrorBasketState extends BasketState{
 }
 
 class LoadedBasketState extends BasketState{
-  final BasketEntity loadedBasket;
+  final BasketEntity? loadedBasket;
 
   const LoadedBasketState({required this.loadedBasket});
 
@@ -51,7 +52,7 @@ class BasketCubit extends Cubit<BasketState>{
     emit(const LoadingBasketState());
     try{
       final result = await basketRep.getBasket();
-      if(result.items.isNotEmpty){
+      if(result!.items!.isNotEmpty){
         emit(LoadedBasketState(loadedBasket: result));
       }
       else{
@@ -66,9 +67,9 @@ class BasketCubit extends Cubit<BasketState>{
     emit(const LoadingBasketState());
     try{
       final basketResult = await basketRep.getBasket();
-      if(basketResult.items.isNotEmpty){
+      if(basketResult!.items!.isNotEmpty){
         emit(LoadedBasketState(loadedBasket: basketResult));
-        respBasketProducts.addAll(basketResult.items.map((e) => e.item.id));
+        respBasketProducts.addAll(basketResult.items!.map((e) => e.item!.id));
       }
       else{
         emit(const EmptyBasketState());

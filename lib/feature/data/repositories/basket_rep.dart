@@ -53,7 +53,7 @@ class BasketRepData implements BasketRep{
   }
 
   @override
-  Future<BasketEntity> getBasket() async{
+  Future<BasketEntity?> getBasket() async{
     try{
       var request = await http.get(Uri.parse('$_baseUrl/api/baskets'));
       var jsonRequest = json.decode(request.body);

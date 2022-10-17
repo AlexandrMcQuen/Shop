@@ -8,7 +8,7 @@ part 'image_model.g.dart';
 @freezed
 class ImageModel with _$ImageModel{
   factory ImageModel({
-    required FileModel file
+    required FileModel? file
 }) = _ImageModel;
 
   factory ImageModel.fromJson(Map<String, dynamic> json) => _$ImageModelFromJson(json);

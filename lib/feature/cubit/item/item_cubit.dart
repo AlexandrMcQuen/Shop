@@ -22,7 +22,7 @@ class ErrorItemState extends ItemState{
 }
 
 class LoadedItemState extends ItemState{
-  final ItemEntity loadedItem;
+  final ItemEntity? loadedItem;
 
   const LoadedItemState({required this.loadedItem});
 
@@ -35,7 +35,7 @@ class ItemCubit extends Cubit<ItemState>{
 
   ItemCubit(this.itemRep) : super(const LoadingItemState());
 
-  Future<ItemEntity?> fetchItem({required id}) async{
+  Future<void> fetchItem({required id}) async{
     emit(const LoadingItemState());
     try{
       final result = await itemRep.getProducts(id: id);

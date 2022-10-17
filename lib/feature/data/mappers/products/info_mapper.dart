@@ -4,11 +4,11 @@ import '../../models/products/info_model.dart';
 
 class InfoMapper extends Mappers<InfoModel, InfoEntity>{
   @override
-  InfoEntity map(InfoModel entity) {
+  InfoEntity? map(InfoModel? entity) {
     return InfoEntity(
-        page: entity.page,
-        pages: entity.pages,
-        total: entity.total,
+        page: entity?.page,
+        pages: entity?.pages,
+        total: entity?.total,
         );
   }
 }

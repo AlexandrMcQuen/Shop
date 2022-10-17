@@ -4,10 +4,10 @@ import 'package:shop/feature/domain/entities/categories/categories_entity.dart';
 
 class CategoriesMapper extends Mappers<CategoriesModel, CategoriesEntity>{
   @override
-  CategoriesEntity map(CategoriesModel entity) {
+  CategoriesEntity? map(CategoriesModel? entity) {
     return CategoriesEntity(
-        id: entity.id,
-        title: entity.title,
-        slug: entity.slug);
+        id: entity?.id ?? 0,
+        title: entity?.title ?? '',
+        slug: entity?.slug ?? '');
   }
 }

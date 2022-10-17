@@ -20,10 +20,10 @@ BasketItemModel _$BasketItemModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BasketItemModel {
-  int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  int get quantity => throw _privateConstructorUsedError;
-  ItemModel get items => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  int? get quantity => throw _privateConstructorUsedError;
+  ItemModel? get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,9 +36,9 @@ abstract class $BasketItemModelCopyWith<$Res> {
   factory $BasketItemModelCopyWith(
           BasketItemModel value, $Res Function(BasketItemModel) then) =
       _$BasketItemModelCopyWithImpl<$Res>;
-  $Res call({int id, String title, int quantity, ItemModel items});
+  $Res call({int? id, String? title, int? quantity, ItemModel? items});
 
-  $ItemModelCopyWith<$Res> get items;
+  $ItemModelCopyWith<$Res>? get items;
 }
 
 /// @nodoc
@@ -61,25 +61,29 @@ class _$BasketItemModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       quantity: quantity == freezed
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as ItemModel,
+              as ItemModel?,
     ));
   }
 
   @override
-  $ItemModelCopyWith<$Res> get items {
-    return $ItemModelCopyWith<$Res>(_value.items, (value) {
+  $ItemModelCopyWith<$Res>? get items {
+    if (_value.items == null) {
+      return null;
+    }
+
+    return $ItemModelCopyWith<$Res>(_value.items!, (value) {
       return _then(_value.copyWith(items: value));
     });
   }
@@ -92,10 +96,10 @@ abstract class _$$_BasketItemModelCopyWith<$Res>
           _$_BasketItemModel value, $Res Function(_$_BasketItemModel) then) =
       __$$_BasketItemModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, int quantity, ItemModel items});
+  $Res call({int? id, String? title, int? quantity, ItemModel? items});
 
   @override
-  $ItemModelCopyWith<$Res> get items;
+  $ItemModelCopyWith<$Res>? get items;
 }
 
 /// @nodoc
@@ -120,19 +124,19 @@ class __$$_BasketItemModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       quantity: quantity == freezed
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as ItemModel,
+              as ItemModel?,
     ));
   }
 }
@@ -150,13 +154,13 @@ class _$_BasketItemModel implements _BasketItemModel {
       _$$_BasketItemModelFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final int quantity;
+  final int? quantity;
   @override
-  final ItemModel items;
+  final ItemModel? items;
 
   @override
   String toString() {
@@ -198,22 +202,22 @@ class _$_BasketItemModel implements _BasketItemModel {
 
 abstract class _BasketItemModel implements BasketItemModel {
   factory _BasketItemModel(
-      {required final int id,
-      required final String title,
-      required final int quantity,
-      required final ItemModel items}) = _$_BasketItemModel;
+      {required final int? id,
+      required final String? title,
+      required final int? quantity,
+      required final ItemModel? items}) = _$_BasketItemModel;
 
   factory _BasketItemModel.fromJson(Map<String, dynamic> json) =
       _$_BasketItemModel.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get title;
+  String? get title;
   @override
-  int get quantity;
+  int? get quantity;
   @override
-  ItemModel get items;
+  ItemModel? get items;
   @override
   @JsonKey(ignore: true)
   _$$_BasketItemModelCopyWith<_$_BasketItemModel> get copyWith =>

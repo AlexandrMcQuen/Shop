@@ -20,12 +20,12 @@ ItemModel _$ItemModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ItemModel {
-  int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get slug => throw _privateConstructorUsedError;
-  ImageModel get image => throw _privateConstructorUsedError;
-  int get price => throw _privateConstructorUsedError;
-  List<ColorsModel> get colors => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get slug => throw _privateConstructorUsedError;
+  ImageModel? get image => throw _privateConstructorUsedError;
+  int? get price => throw _privateConstructorUsedError;
+  List<ColorsModel>? get colors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,14 +38,14 @@ abstract class $ItemModelCopyWith<$Res> {
   factory $ItemModelCopyWith(ItemModel value, $Res Function(ItemModel) then) =
       _$ItemModelCopyWithImpl<$Res>;
   $Res call(
-      {int id,
-      String title,
-      String slug,
-      ImageModel image,
-      int price,
-      List<ColorsModel> colors});
+      {int? id,
+      String? title,
+      String? slug,
+      ImageModel? image,
+      int? price,
+      List<ColorsModel>? colors});
 
-  $ImageModelCopyWith<$Res> get image;
+  $ImageModelCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -69,33 +69,37 @@ class _$ItemModelCopyWithImpl<$Res> implements $ItemModelCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       slug: slug == freezed
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as ImageModel,
+              as ImageModel?,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       colors: colors == freezed
           ? _value.colors
           : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorsModel>,
+              as List<ColorsModel>?,
     ));
   }
 
   @override
-  $ImageModelCopyWith<$Res> get image {
-    return $ImageModelCopyWith<$Res>(_value.image, (value) {
+  $ImageModelCopyWith<$Res>? get image {
+    if (_value.image == null) {
+      return null;
+    }
+
+    return $ImageModelCopyWith<$Res>(_value.image!, (value) {
       return _then(_value.copyWith(image: value));
     });
   }
@@ -108,15 +112,15 @@ abstract class _$$_ItemModelCopyWith<$Res> implements $ItemModelCopyWith<$Res> {
       __$$_ItemModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id,
-      String title,
-      String slug,
-      ImageModel image,
-      int price,
-      List<ColorsModel> colors});
+      {int? id,
+      String? title,
+      String? slug,
+      ImageModel? image,
+      int? price,
+      List<ColorsModel>? colors});
 
   @override
-  $ImageModelCopyWith<$Res> get image;
+  $ImageModelCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -142,27 +146,27 @@ class __$$_ItemModelCopyWithImpl<$Res> extends _$ItemModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       slug: slug == freezed
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as ImageModel,
+              as ImageModel?,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       colors: colors == freezed
           ? _value._colors
           : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorsModel>,
+              as List<ColorsModel>?,
     ));
   }
 }
@@ -176,27 +180,29 @@ class _$_ItemModel implements _ItemModel {
       required this.slug,
       required this.image,
       required this.price,
-      required final List<ColorsModel> colors})
+      required final List<ColorsModel>? colors})
       : _colors = colors;
 
   factory _$_ItemModel.fromJson(Map<String, dynamic> json) =>
       _$$_ItemModelFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String slug;
+  final String? slug;
   @override
-  final ImageModel image;
+  final ImageModel? image;
   @override
-  final int price;
-  final List<ColorsModel> _colors;
+  final int? price;
+  final List<ColorsModel>? _colors;
   @override
-  List<ColorsModel> get colors {
+  List<ColorsModel>? get colors {
+    final value = _colors;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_colors);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -243,28 +249,28 @@ class _$_ItemModel implements _ItemModel {
 
 abstract class _ItemModel implements ItemModel {
   factory _ItemModel(
-      {required final int id,
-      required final String title,
-      required final String slug,
-      required final ImageModel image,
-      required final int price,
-      required final List<ColorsModel> colors}) = _$_ItemModel;
+      {required final int? id,
+      required final String? title,
+      required final String? slug,
+      required final ImageModel? image,
+      required final int? price,
+      required final List<ColorsModel>? colors}) = _$_ItemModel;
 
   factory _ItemModel.fromJson(Map<String, dynamic> json) =
       _$_ItemModel.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get slug;
+  String? get slug;
   @override
-  ImageModel get image;
+  ImageModel? get image;
   @override
-  int get price;
+  int? get price;
   @override
-  List<ColorsModel> get colors;
+  List<ColorsModel>? get colors;
   @override
   @JsonKey(ignore: true)
   _$$_ItemModelCopyWith<_$_ItemModel> get copyWith =>

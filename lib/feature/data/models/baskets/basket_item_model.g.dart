@@ -8,10 +8,12 @@ part of 'basket_item_model.dart';
 
 _$_BasketItemModel _$$_BasketItemModelFromJson(Map<String, dynamic> json) =>
     _$_BasketItemModel(
-      id: json['id'] as int,
-      title: json['title'] as String,
-      quantity: json['quantity'] as int,
-      items: ItemModel.fromJson(json['items'] as Map<String, dynamic>),
+      id: json['id'] as int?,
+      title: json['title'] as String?,
+      quantity: json['quantity'] as int?,
+      items: json['items'] == null
+          ? null
+          : ItemModel.fromJson(json['items'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_BasketItemModelToJson(_$_BasketItemModel instance) =>

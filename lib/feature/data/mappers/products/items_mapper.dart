@@ -12,14 +12,14 @@ class ItemsMapper extends Mappers<ItemModel, ItemEntity>{
   ItemsMapper({required this.colorsMapper, required this.imageMapper});
 
   @override
-  ItemEntity map(ItemModel entity) {
+  ItemEntity? map(ItemModel? entity) {
     return ItemEntity(
-        id: entity.id,
-        title: entity.title,
-        slug: entity.slug,
-        image: imageMapper.map(entity.image),
-        price: entity.price,
-        colors: colorsMapper.mapList(entity.colors)
+        id: entity?.id ?? 0,
+        title: entity?.title ?? '',
+        slug: entity?.slug ?? '',
+        image: imageMapper.map(entity?.image),
+        price: entity?.price ?? 0,
+        colors: colorsMapper.mapList(entity?.colors)
     );
   }
 }

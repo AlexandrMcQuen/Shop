@@ -9,9 +9,9 @@ class ImageMapper extends Mappers<ImageModel, ImageEntity>{
   ImageMapper({required this.fileMapper});
 
   @override
-  ImageEntity map(ImageModel entity) {
+  ImageEntity? map(ImageModel? entity) {
     return ImageEntity(
-        file: fileMapper.map(entity.file));
+        file: fileMapper.map(entity?.file));
   }
 
 }

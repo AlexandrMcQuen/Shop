@@ -20,8 +20,8 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModel {
-  int get id => throw _privateConstructorUsedError;
-  String get accessKey => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get accessKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ mixin _$UserModel {
 abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res>;
-  $Res call({int id, String accessKey});
+  $Res call({int? id, String? accessKey});
 }
 
 /// @nodoc
@@ -53,11 +53,11 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       accessKey: accessKey == freezed
           ? _value.accessKey
           : accessKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -68,7 +68,7 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
           _$_UserModel value, $Res Function(_$_UserModel) then) =
       __$$_UserModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String accessKey});
+  $Res call({int? id, String? accessKey});
 }
 
 /// @nodoc
@@ -90,11 +90,11 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       accessKey: accessKey == freezed
           ? _value.accessKey
           : accessKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -108,9 +108,9 @@ class _$_UserModel implements _UserModel {
       _$$_UserModelFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String accessKey;
+  final String? accessKey;
 
   @override
   String toString() {
@@ -147,16 +147,17 @@ class _$_UserModel implements _UserModel {
 }
 
 abstract class _UserModel implements UserModel {
-  factory _UserModel({required final int id, required final String accessKey}) =
-      _$_UserModel;
+  factory _UserModel(
+      {required final int? id,
+      required final String? accessKey}) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get accessKey;
+  String? get accessKey;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

@@ -4,12 +4,12 @@ import 'package:shop/feature/domain/entities/products/file_entity.dart';
 
 class FileMapper extends Mappers<FileModel, FileEntity>{
   @override
-  FileEntity map(FileModel entity) {
+  FileEntity? map(FileModel? entity) {
     return FileEntity(
-        url: entity.url,
-        name: entity.name,
-        originalName: entity.originalName,
-        extension: entity.extension,
-        size: entity.size);
+        url: entity?.url ?? '',
+        name: entity?.name ?? '',
+        originalName: entity?.originalName ?? '',
+        extension: entity?.extension ?? '',
+        size: entity?.size ?? '');
   }
 }

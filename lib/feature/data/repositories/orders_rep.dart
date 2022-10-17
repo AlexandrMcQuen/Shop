@@ -18,7 +18,7 @@ class OrderRepData extends OrderRep{
   late final OrderMapper orderMapper;
 
   @override
-  Future<OrderEntity> createOrder(
+  Future<OrderEntity?> createOrder(
       {required String name,
         required String address,
         required String phone,
@@ -35,7 +35,7 @@ class OrderRepData extends OrderRep{
   }
 
   @override
-  Future<OrderStatusEntity> statusOrder({required String id}) async{
+  Future<OrderStatusEntity?> statusOrder({required String id}) async{
     try{
       final request = await http.get(Uri.https(_baseUrl, '/api/orders/$id', <String, String> {'userAccessKey': '${_store.getAccessKey()}'}));
       final jsonRequest = OrderStatusModel.fromJson(json.decode(request.body));

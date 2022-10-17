@@ -20,9 +20,9 @@ InfoModel _$InfoModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InfoModel {
-  int get page => throw _privateConstructorUsedError;
-  int get pages => throw _privateConstructorUsedError;
-  int get total => throw _privateConstructorUsedError;
+  int? get page => throw _privateConstructorUsedError;
+  int? get pages => throw _privateConstructorUsedError;
+  int? get total => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ mixin _$InfoModel {
 abstract class $InfoModelCopyWith<$Res> {
   factory $InfoModelCopyWith(InfoModel value, $Res Function(InfoModel) then) =
       _$InfoModelCopyWithImpl<$Res>;
-  $Res call({int page, int pages, int total});
+  $Res call({int? page, int? pages, int? total});
 }
 
 /// @nodoc
@@ -55,15 +55,15 @@ class _$InfoModelCopyWithImpl<$Res> implements $InfoModelCopyWith<$Res> {
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       pages: pages == freezed
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -74,7 +74,7 @@ abstract class _$$_InfoModelCopyWith<$Res> implements $InfoModelCopyWith<$Res> {
           _$_InfoModel value, $Res Function(_$_InfoModel) then) =
       __$$_InfoModelCopyWithImpl<$Res>;
   @override
-  $Res call({int page, int pages, int total});
+  $Res call({int? page, int? pages, int? total});
 }
 
 /// @nodoc
@@ -97,15 +97,15 @@ class __$$_InfoModelCopyWithImpl<$Res> extends _$InfoModelCopyWithImpl<$Res>
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       pages: pages == freezed
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -119,11 +119,11 @@ class _$_InfoModel implements _InfoModel {
       _$$_InfoModelFromJson(json);
 
   @override
-  final int page;
+  final int? page;
   @override
-  final int pages;
+  final int? pages;
   @override
-  final int total;
+  final int? total;
 
   @override
   String toString() {
@@ -163,19 +163,19 @@ class _$_InfoModel implements _InfoModel {
 
 abstract class _InfoModel implements InfoModel {
   factory _InfoModel(
-      {required final int page,
-      required final int pages,
-      required final int total}) = _$_InfoModel;
+      {required final int? page,
+      required final int? pages,
+      required final int? total}) = _$_InfoModel;
 
   factory _InfoModel.fromJson(Map<String, dynamic> json) =
       _$_InfoModel.fromJson;
 
   @override
-  int get page;
+  int? get page;
   @override
-  int get pages;
+  int? get pages;
   @override
-  int get total;
+  int? get total;
   @override
   @JsonKey(ignore: true)
   _$$_InfoModelCopyWith<_$_InfoModel> get copyWith =>

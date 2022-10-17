@@ -23,7 +23,7 @@ class UserRepData implements UserRep{
       final response = UserModel.fromJson(jsonRequest);
       print(response);
       final user = userMapper.map(response);
-      await store.setAccessKey(user.accessKey);
+      await store.setAccessKey(user?.accessKey);
       print('$user');
       return user;
     } catch (e){

@@ -8,11 +8,11 @@ part of 'orders_model.dart';
 
 _$_OrderModel _$$_OrderModelFromJson(Map<String, dynamic> json) =>
     _$_OrderModel(
-      name: json['name'] as String,
-      address: json['address'] as String,
-      phone: json['phone'] as String,
-      email: json['email'] as String,
-      comment: json['comment'] as String,
+      name: json['name'] as String?,
+      address: json['address'] as String?,
+      phone: json['phone'] as String?,
+      email: json['email'] as String?,
+      comment: json['comment'] as String?,
     );
 
 Map<String, dynamic> _$$_OrderModelToJson(_$_OrderModel instance) =>

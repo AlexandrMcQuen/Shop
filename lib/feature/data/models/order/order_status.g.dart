@@ -1,18 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'users_model.dart';
+part of 'order_status.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
+_$_OrderStatusModel _$$_OrderStatusModelFromJson(Map<String, dynamic> json) =>
+    _$_OrderStatusModel(
       id: json['id'] as int?,
-      accessKey: json['accessKey'] as String?,
+      status: json['status'] as String?,
     );
 
-Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
+Map<String, dynamic> _$$_OrderStatusModelToJson(_$_OrderStatusModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'accessKey': instance.accessKey,
+      'status': instance.status,
     };

@@ -20,11 +20,11 @@ FileModel _$FileModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FileModel {
-  String get url => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get originalName => throw _privateConstructorUsedError;
-  String get extension => throw _privateConstructorUsedError;
-  String get size => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get originalName => throw _privateConstructorUsedError;
+  String? get extension => throw _privateConstructorUsedError;
+  String? get size => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,11 +37,11 @@ abstract class $FileModelCopyWith<$Res> {
   factory $FileModelCopyWith(FileModel value, $Res Function(FileModel) then) =
       _$FileModelCopyWithImpl<$Res>;
   $Res call(
-      {String url,
-      String name,
-      String originalName,
-      String extension,
-      String size});
+      {String? url,
+      String? name,
+      String? originalName,
+      String? extension,
+      String? size});
 }
 
 /// @nodoc
@@ -64,23 +64,23 @@ class _$FileModelCopyWithImpl<$Res> implements $FileModelCopyWith<$Res> {
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       originalName: originalName == freezed
           ? _value.originalName
           : originalName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       extension: extension == freezed
           ? _value.extension
           : extension // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       size: size == freezed
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -92,11 +92,11 @@ abstract class _$$_FileModelCopyWith<$Res> implements $FileModelCopyWith<$Res> {
       __$$_FileModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String url,
-      String name,
-      String originalName,
-      String extension,
-      String size});
+      {String? url,
+      String? name,
+      String? originalName,
+      String? extension,
+      String? size});
 }
 
 /// @nodoc
@@ -121,23 +121,23 @@ class __$$_FileModelCopyWithImpl<$Res> extends _$FileModelCopyWithImpl<$Res>
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       originalName: originalName == freezed
           ? _value.originalName
           : originalName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       extension: extension == freezed
           ? _value.extension
           : extension // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       size: size == freezed
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -156,15 +156,15 @@ class _$_FileModel implements _FileModel {
       _$$_FileModelFromJson(json);
 
   @override
-  final String url;
+  final String? url;
   @override
-  final String name;
+  final String? name;
   @override
-  final String originalName;
+  final String? originalName;
   @override
-  final String extension;
+  final String? extension;
   @override
-  final String size;
+  final String? size;
 
   @override
   String toString() {
@@ -209,25 +209,25 @@ class _$_FileModel implements _FileModel {
 
 abstract class _FileModel implements FileModel {
   factory _FileModel(
-      {required final String url,
-      required final String name,
-      required final String originalName,
-      required final String extension,
-      required final String size}) = _$_FileModel;
+      {required final String? url,
+      required final String? name,
+      required final String? originalName,
+      required final String? extension,
+      required final String? size}) = _$_FileModel;
 
   factory _FileModel.fromJson(Map<String, dynamic> json) =
       _$_FileModel.fromJson;
 
   @override
-  String get url;
+  String? get url;
   @override
-  String get name;
+  String? get name;
   @override
-  String get originalName;
+  String? get originalName;
   @override
-  String get extension;
+  String? get extension;
   @override
-  String get size;
+  String? get size;
   @override
   @JsonKey(ignore: true)
   _$$_FileModelCopyWith<_$_FileModel> get copyWith =>

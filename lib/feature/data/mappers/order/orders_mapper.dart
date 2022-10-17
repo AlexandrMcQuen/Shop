@@ -4,13 +4,13 @@ import 'package:shop/feature/domain/entities/order/order_entity.dart';
 
 class OrderMapper extends Mappers<OrderModel, OrderEntity>{
   @override
-  OrderEntity map(OrderModel entity) {
+  OrderEntity? map(OrderModel? entity) {
     return OrderEntity(
-        name: entity.name,
-        address: entity.address,
-        phone: entity.phone,
-        email: entity.email,
-        comment: entity.comment
+        name: entity?.name ?? '',
+        address: entity?.address ?? '',
+        phone: entity?.phone ?? '',
+        email: entity?.email ?? '',
+        comment: entity?.comment ?? ''
     );
   }
 

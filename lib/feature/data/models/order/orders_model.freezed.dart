@@ -20,11 +20,11 @@ OrderModel _$OrderModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OrderModel {
-  String get name => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get comment => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get comment => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,11 +38,11 @@ abstract class $OrderModelCopyWith<$Res> {
           OrderModel value, $Res Function(OrderModel) then) =
       _$OrderModelCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      String address,
-      String phone,
-      String email,
-      String comment});
+      {String? name,
+      String? address,
+      String? phone,
+      String? email,
+      String? comment});
 }
 
 /// @nodoc
@@ -65,23 +65,23 @@ class _$OrderModelCopyWithImpl<$Res> implements $OrderModelCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       comment: comment == freezed
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -94,11 +94,11 @@ abstract class _$$_OrderModelCopyWith<$Res>
       __$$_OrderModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      String address,
-      String phone,
-      String email,
-      String comment});
+      {String? name,
+      String? address,
+      String? phone,
+      String? email,
+      String? comment});
 }
 
 /// @nodoc
@@ -123,23 +123,23 @@ class __$$_OrderModelCopyWithImpl<$Res> extends _$OrderModelCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       comment: comment == freezed
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -158,15 +158,15 @@ class _$_OrderModel implements _OrderModel {
       _$$_OrderModelFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   @override
-  final String address;
+  final String? address;
   @override
-  final String phone;
+  final String? phone;
   @override
-  final String email;
+  final String? email;
   @override
-  final String comment;
+  final String? comment;
 
   @override
   String toString() {
@@ -210,25 +210,25 @@ class _$_OrderModel implements _OrderModel {
 
 abstract class _OrderModel implements OrderModel {
   factory _OrderModel(
-      {required final String name,
-      required final String address,
-      required final String phone,
-      required final String email,
-      required final String comment}) = _$_OrderModel;
+      {required final String? name,
+      required final String? address,
+      required final String? phone,
+      required final String? email,
+      required final String? comment}) = _$_OrderModel;
 
   factory _OrderModel.fromJson(Map<String, dynamic> json) =
       _$_OrderModel.fromJson;
 
   @override
-  String get name;
+  String? get name;
   @override
-  String get address;
+  String? get address;
   @override
-  String get phone;
+  String? get phone;
   @override
-  String get email;
+  String? get email;
   @override
-  String get comment;
+  String? get comment;
   @override
   @JsonKey(ignore: true)
   _$$_OrderModelCopyWith<_$_OrderModel> get copyWith =>

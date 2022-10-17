@@ -7,9 +7,9 @@ part 'colors_model.g.dart';
 @freezed
 class ColorsModel with _$ColorsModel{
   factory ColorsModel({
-    required int id,
-    required String title,
-    required String code
+    required int? id,
+    required String? title,
+    required String? code
 }) = _ColorsModel;
 
   factory ColorsModel.fromJson(Map<String, dynamic> json) => _$ColorsModelFromJson(json);

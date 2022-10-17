@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 
 class OrderStatusEntity extends Equatable{
-  final int id;
-  final String status;
+  final int? id;
+  final String? status;
 
   const OrderStatusEntity({required this.id, required this.status});
 

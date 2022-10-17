@@ -11,11 +11,11 @@ class BasketMapper extends Mappers<BasketModel, BasketEntity>{
   BasketMapper({required this.userMapper, required this.basketsItemMapper});
 
   @override
-  BasketEntity map(BasketModel entity) {
+  BasketEntity? map(BasketModel? entity) {
     return BasketEntity(
-        id: entity.id,
-        items: basketsItemMapper.mapList(entity.items),
-        user: userMapper.map(entity.user)
+        id: entity?.id ?? 0,
+        items: basketsItemMapper.mapList(entity?.items),
+        user: userMapper.map(entity?.user)
     );
   }
 

@@ -20,7 +20,7 @@ class ProductListRepData extends ProductListRep{
 
 
   @override
-  Future<CategoriesListEntity> getCategories() async{
+  Future<CategoriesListEntity?> getCategories() async{
     try{
       var request = await http.get(Uri.parse('$_baseUrl/api/productCategories'));
       var jsonRequest = json.decode(request.body);
@@ -34,7 +34,7 @@ class ProductListRepData extends ProductListRep{
   }
 
   @override
-  Future<ListItemEntity> getAll({required page, required id}) async{
+  Future<ListItemEntity?> getAll({required page, required id}) async{
     try{
       var request = await http.get(Uri.https(_baseUrl, '/api/products', <String, String>{
         'categoryId': id,

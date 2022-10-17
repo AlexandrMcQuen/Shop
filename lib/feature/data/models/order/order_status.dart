@@ -6,8 +6,8 @@ part 'order_status.freezed.dart';
 @freezed
 class OrderStatusModel with _$OrderStatusModel{
   factory OrderStatusModel({
-    required int id,
-    required String status
+    required int? id,
+    required String? status
 }) = _OrderStatusModel;
 
   factory OrderStatusModel.fromJson(Map<String, dynamic> json) => _$OrderStatusModelFromJson(json);

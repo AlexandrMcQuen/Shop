@@ -44,18 +44,18 @@ class _ItemWidgetState extends State<ItemWidget> {
           if (state is LoadedItemState){
             return Scaffold(
               appBar: AppBar(
-                title: Text(state.loadedItem.title),
+                title: Text(state.loadedItem!.title!),
               ),
               body: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ItemCardWidget(
-                      id: state.loadedItem.id,
-                      url: state.loadedItem.image.file.url,
-                      price: state.loadedItem.price,
-                      colors: state.loadedItem.colors,
-                      title: state.loadedItem.title,)
+                      id: state!.loadedItem!.id!,
+                      url: state.loadedItem!.image!.file!.url!,
+                      price: state.loadedItem!.price!,
+                      colors: state.loadedItem!.colors!,
+                      title: state.loadedItem!.title!,)
                   ],
                 ),
               ),
@@ -70,4 +70,5 @@ class _ItemWidgetState extends State<ItemWidget> {
         });
   }
 }
+
 

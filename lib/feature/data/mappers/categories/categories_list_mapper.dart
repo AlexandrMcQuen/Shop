@@ -9,9 +9,9 @@ class CategoriesListMapper extends Mappers<CategoriesListModel, CategoriesListEn
   CategoriesListMapper({required this.categoriesMapper});
 
   @override
-  CategoriesListEntity map(CategoriesListModel entity) {
+  CategoriesListEntity? map(CategoriesListModel? entity) {
     return CategoriesListEntity(
-        items: categoriesMapper.mapList(entity.items));
+        items: categoriesMapper.mapList(entity?.items));
   }
 
 }

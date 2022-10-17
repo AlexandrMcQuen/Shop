@@ -17,7 +17,7 @@ class LoadingCatalogState extends CatalogState{
 }
 
 class LoadedCatalogState extends CatalogState{
-  final ListItemEntity loadedCatalog;
+  final ListItemEntity? loadedCatalog;
 
   const LoadedCatalogState({ required this.loadedCatalog});
 
@@ -30,7 +30,7 @@ class LoadingCategoryState extends CatalogState{
 }
 
 class LoadedCategoryState extends CatalogState{
-  final CategoriesListEntity loadedCategory;
+  final CategoriesListEntity? loadedCategory;
 
   const LoadedCategoryState({ required this.loadedCategory});
 
@@ -48,7 +48,7 @@ class CatalogCubit extends Cubit<CatalogState>{
   CatalogCubit(this.productListRep) : super(const LoadingCatalogState());
 
   Future<void> fetchCategory() async{
-    emit(const LoadingCategoryState());
+    emit(const LoadingCategoryState()); 
     try{
       final resultCategory = await productListRep.getCategories();
       emit(LoadedCategoryState(loadedCategory: resultCategory));

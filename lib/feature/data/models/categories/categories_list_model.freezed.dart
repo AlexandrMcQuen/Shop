@@ -20,7 +20,7 @@ CategoriesListModel _$CategoriesListModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CategoriesListModel {
-  List<CategoriesModel> get items => throw _privateConstructorUsedError;
+  List<CategoriesModel>? get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $CategoriesListModelCopyWith<$Res> {
   factory $CategoriesListModelCopyWith(
           CategoriesListModel value, $Res Function(CategoriesListModel) then) =
       _$CategoriesListModelCopyWithImpl<$Res>;
-  $Res call({List<CategoriesModel> items});
+  $Res call({List<CategoriesModel>? items});
 }
 
 /// @nodoc
@@ -53,7 +53,7 @@ class _$CategoriesListModelCopyWithImpl<$Res>
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<CategoriesModel>,
+              as List<CategoriesModel>?,
     ));
   }
 }
@@ -65,7 +65,7 @@ abstract class _$$_CategoriesListModelCopyWith<$Res>
           $Res Function(_$_CategoriesListModel) then) =
       __$$_CategoriesListModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<CategoriesModel> items});
+  $Res call({List<CategoriesModel>? items});
 }
 
 /// @nodoc
@@ -87,7 +87,7 @@ class __$$_CategoriesListModelCopyWithImpl<$Res>
       items: items == freezed
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<CategoriesModel>,
+              as List<CategoriesModel>?,
     ));
   }
 }
@@ -95,17 +95,19 @@ class __$$_CategoriesListModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CategoriesListModel implements _CategoriesListModel {
-  _$_CategoriesListModel({required final List<CategoriesModel> items})
+  _$_CategoriesListModel({required final List<CategoriesModel>? items})
       : _items = items;
 
   factory _$_CategoriesListModel.fromJson(Map<String, dynamic> json) =>
       _$$_CategoriesListModelFromJson(json);
 
-  final List<CategoriesModel> _items;
+  final List<CategoriesModel>? _items;
   @override
-  List<CategoriesModel> get items {
+  List<CategoriesModel>? get items {
+    final value = _items;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_items);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -141,14 +143,14 @@ class _$_CategoriesListModel implements _CategoriesListModel {
 }
 
 abstract class _CategoriesListModel implements CategoriesListModel {
-  factory _CategoriesListModel({required final List<CategoriesModel> items}) =
+  factory _CategoriesListModel({required final List<CategoriesModel>? items}) =
       _$_CategoriesListModel;
 
   factory _CategoriesListModel.fromJson(Map<String, dynamic> json) =
       _$_CategoriesListModel.fromJson;
 
   @override
-  List<CategoriesModel> get items;
+  List<CategoriesModel>? get items;
   @override
   @JsonKey(ignore: true)
   _$$_CategoriesListModelCopyWith<_$_CategoriesListModel> get copyWith =>

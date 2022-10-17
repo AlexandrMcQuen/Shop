@@ -5,9 +5,9 @@ import 'package:shop/feature/domain/entities/order/status_order_entity.dart';
 class OrderStatusMapper extends Mappers<OrderStatusModel, OrderStatusEntity>{
 
   @override
-  OrderStatusEntity map(OrderStatusModel entity) {
+  OrderStatusEntity? map(OrderStatusModel? entity) {
     return OrderStatusEntity(
-        id: entity.id,
-        status: entity.status);
+        id: entity?.id ?? 0,
+        status: entity?.status ?? '');
   }
 }

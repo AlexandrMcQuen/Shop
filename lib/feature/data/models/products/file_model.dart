@@ -6,11 +6,11 @@ part 'file_model.g.dart';
 @freezed
 class FileModel with _$FileModel{
   factory FileModel({
-    required String url,
-    required String name,
-    required String originalName,
-    required String extension,
-    required String size
+    required String? url,
+    required String? name,
+    required String? originalName,
+    required String? extension,
+    required String? size
 }) = _FileModel;
 
   factory FileModel.fromJson(Map<String, dynamic> json) => _$FileModelFromJson(json);

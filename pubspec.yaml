@@ -30,6 +30,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   infinite_scroll_pagination: ^3.2.0
+  hexcolor: ^2.0.6
   flutter_bloc: ^8.1.1
   shared_preferences: ^2.0.15
   http: ^0.13.5

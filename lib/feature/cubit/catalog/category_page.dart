@@ -6,6 +6,7 @@ import 'package:shop/feature/domain/repositories/product_list_rep.dart';
 import '../../ui/catalog/category.dart';
 import 'catalog_cubit.dart';
 
+
 class CategoryPage extends StatelessWidget {
   const CategoryPage({Key? key}) : super(key: key);
 
@@ -45,12 +46,12 @@ class _CategoryPageWidgetState extends State<_CategoryPageWidget> {
           if (state is LoadedCategoryState){
             return ListView.separated(
                 itemBuilder: (BuildContext context, index){
-                  return CategoryWidget(categoriesEntity: state.loadedCategory.items[index]);
+                  return CategoryWidget(categoriesEntity: state.loadedCategory!.items![index]);
                 },
                 separatorBuilder: (context, index){
                   return const Divider(height: 0,);
                 },
-                itemCount: state.loadedCategory.items.length);
+                itemCount: state.loadedCategory!.items!.length);
           } else if(state is LoadingCategoryState){
             return const Center(
               child: CircularProgressIndicator(),
@@ -63,4 +64,5 @@ class _CategoryPageWidgetState extends State<_CategoryPageWidget> {
     );
   }
 }
+
 

@@ -4,11 +4,11 @@ import 'package:shop/feature/domain/entities/products/colors_entity.dart';
 
 class ColorsMapper extends Mappers<ColorsModel, ColorsEntity>{
   @override
-  ColorsEntity map(ColorsModel entity) {
+  ColorsEntity? map(ColorsModel? entity) {
      return ColorsEntity(
-       id: entity.id,
-       title: entity.title,
-       code: entity.code
+       id: entity?.id ?? 0,
+       title: entity?.title ?? '',
+       code: entity?.code ?? ''
      );
   }
 }

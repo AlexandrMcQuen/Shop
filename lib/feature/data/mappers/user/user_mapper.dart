@@ -5,9 +5,9 @@ import '../../../domain/entities/user/user_entity.dart';
 
 class UserMapper extends Mappers<UserModel, UserEntity>{
   @override
-  UserEntity map(UserModel entity) {
+  UserEntity? map(UserModel? entity) {
     return UserEntity(
-        id: entity.id,
-        accessKey: entity.accessKey);
+        id: entity?.id,
+        accessKey: entity?.accessKey);
   }
 }

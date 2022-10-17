@@ -2,7 +2,7 @@ import '../entities/order/order_entity.dart';
 import '../entities/order/status_order_entity.dart';
 
 abstract class OrderRep{
-  Future<OrderEntity> createOrder(
+  Future<OrderEntity?> createOrder(
       {required String name,
         required String address,
         required String phone,
@@ -10,6 +10,6 @@ abstract class OrderRep{
         required String comment
   });
 
-  Future<OrderStatusEntity> statusOrder({required String id});
+  Future<OrderStatusEntity?> statusOrder({required String id});
 
 }

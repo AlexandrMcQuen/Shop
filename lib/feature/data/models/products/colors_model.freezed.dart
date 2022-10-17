@@ -20,9 +20,9 @@ ColorsModel _$ColorsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ColorsModel {
-  int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get code => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $ColorsModelCopyWith<$Res> {
   factory $ColorsModelCopyWith(
           ColorsModel value, $Res Function(ColorsModel) then) =
       _$ColorsModelCopyWithImpl<$Res>;
-  $Res call({int id, String title, String code});
+  $Res call({int? id, String? title, String? code});
 }
 
 /// @nodoc
@@ -56,15 +56,15 @@ class _$ColorsModelCopyWithImpl<$Res> implements $ColorsModelCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -76,7 +76,7 @@ abstract class _$$_ColorsModelCopyWith<$Res>
           _$_ColorsModel value, $Res Function(_$_ColorsModel) then) =
       __$$_ColorsModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, String code});
+  $Res call({int? id, String? title, String? code});
 }
 
 /// @nodoc
@@ -99,15 +99,15 @@ class __$$_ColorsModelCopyWithImpl<$Res> extends _$ColorsModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -121,11 +121,11 @@ class _$_ColorsModel implements _ColorsModel {
       _$$_ColorsModelFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String code;
+  final String? code;
 
   @override
   String toString() {
@@ -165,19 +165,19 @@ class _$_ColorsModel implements _ColorsModel {
 
 abstract class _ColorsModel implements ColorsModel {
   factory _ColorsModel(
-      {required final int id,
-      required final String title,
-      required final String code}) = _$_ColorsModel;
+      {required final int? id,
+      required final String? title,
+      required final String? code}) = _$_ColorsModel;
 
   factory _ColorsModel.fromJson(Map<String, dynamic> json) =
       _$_ColorsModel.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get code;
+  String? get code;
   @override
   @JsonKey(ignore: true)
   _$$_ColorsModelCopyWith<_$_ColorsModel> get copyWith =>

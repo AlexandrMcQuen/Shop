@@ -20,7 +20,7 @@ ImageModel _$ImageModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageModel {
-  FileModel get file => throw _privateConstructorUsedError;
+  FileModel? get file => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,9 +33,9 @@ abstract class $ImageModelCopyWith<$Res> {
   factory $ImageModelCopyWith(
           ImageModel value, $Res Function(ImageModel) then) =
       _$ImageModelCopyWithImpl<$Res>;
-  $Res call({FileModel file});
+  $Res call({FileModel? file});
 
-  $FileModelCopyWith<$Res> get file;
+  $FileModelCopyWith<$Res>? get file;
 }
 
 /// @nodoc
@@ -54,13 +54,17 @@ class _$ImageModelCopyWithImpl<$Res> implements $ImageModelCopyWith<$Res> {
       file: file == freezed
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
-              as FileModel,
+              as FileModel?,
     ));
   }
 
   @override
-  $FileModelCopyWith<$Res> get file {
-    return $FileModelCopyWith<$Res>(_value.file, (value) {
+  $FileModelCopyWith<$Res>? get file {
+    if (_value.file == null) {
+      return null;
+    }
+
+    return $FileModelCopyWith<$Res>(_value.file!, (value) {
       return _then(_value.copyWith(file: value));
     });
   }
@@ -73,10 +77,10 @@ abstract class _$$_ImageModelCopyWith<$Res>
           _$_ImageModel value, $Res Function(_$_ImageModel) then) =
       __$$_ImageModelCopyWithImpl<$Res>;
   @override
-  $Res call({FileModel file});
+  $Res call({FileModel? file});
 
   @override
-  $FileModelCopyWith<$Res> get file;
+  $FileModelCopyWith<$Res>? get file;
 }
 
 /// @nodoc
@@ -97,7 +101,7 @@ class __$$_ImageModelCopyWithImpl<$Res> extends _$ImageModelCopyWithImpl<$Res>
       file: file == freezed
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
-              as FileModel,
+              as FileModel?,
     ));
   }
 }
@@ -111,7 +115,7 @@ class _$_ImageModel implements _ImageModel {
       _$$_ImageModelFromJson(json);
 
   @override
-  final FileModel file;
+  final FileModel? file;
 
   @override
   String toString() {
@@ -145,13 +149,13 @@ class _$_ImageModel implements _ImageModel {
 }
 
 abstract class _ImageModel implements ImageModel {
-  factory _ImageModel({required final FileModel file}) = _$_ImageModel;
+  factory _ImageModel({required final FileModel? file}) = _$_ImageModel;
 
   factory _ImageModel.fromJson(Map<String, dynamic> json) =
       _$_ImageModel.fromJson;
 
   @override
-  FileModel get file;
+  FileModel? get file;
   @override
   @JsonKey(ignore: true)
   _$$_ImageModelCopyWith<_$_ImageModel> get copyWith =>

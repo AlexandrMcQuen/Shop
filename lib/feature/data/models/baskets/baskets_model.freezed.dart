@@ -20,9 +20,9 @@ BasketModel _$BasketModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BasketModel {
-  int get id => throw _privateConstructorUsedError;
-  List<BasketItemModel> get items => throw _privateConstructorUsedError;
-  UserModel get user => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  List<BasketItemModel>? get items => throw _privateConstructorUsedError;
+  UserModel? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +35,9 @@ abstract class $BasketModelCopyWith<$Res> {
   factory $BasketModelCopyWith(
           BasketModel value, $Res Function(BasketModel) then) =
       _$BasketModelCopyWithImpl<$Res>;
-  $Res call({int id, List<BasketItemModel> items, UserModel user});
+  $Res call({int? id, List<BasketItemModel>? items, UserModel? user});
 
-  $UserModelCopyWith<$Res> get user;
+  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -58,21 +58,25 @@ class _$BasketModelCopyWithImpl<$Res> implements $BasketModelCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<BasketItemModel>,
+              as List<BasketItemModel>?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as UserModel?,
     ));
   }
 
   @override
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
+  $UserModelCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserModelCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -85,10 +89,10 @@ abstract class _$$_BasketModelCopyWith<$Res>
           _$_BasketModel value, $Res Function(_$_BasketModel) then) =
       __$$_BasketModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, List<BasketItemModel> items, UserModel user});
+  $Res call({int? id, List<BasketItemModel>? items, UserModel? user});
 
   @override
-  $UserModelCopyWith<$Res> get user;
+  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -111,15 +115,15 @@ class __$$_BasketModelCopyWithImpl<$Res> extends _$BasketModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       items: items == freezed
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<BasketItemModel>,
+              as List<BasketItemModel>?,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as UserModel?,
     ));
   }
 }
@@ -129,7 +133,7 @@ class __$$_BasketModelCopyWithImpl<$Res> extends _$BasketModelCopyWithImpl<$Res>
 class _$_BasketModel implements _BasketModel {
   _$_BasketModel(
       {required this.id,
-      required final List<BasketItemModel> items,
+      required final List<BasketItemModel>? items,
       required this.user})
       : _items = items;
 
@@ -137,16 +141,18 @@ class _$_BasketModel implements _BasketModel {
       _$$_BasketModelFromJson(json);
 
   @override
-  final int id;
-  final List<BasketItemModel> _items;
+  final int? id;
+  final List<BasketItemModel>? _items;
   @override
-  List<BasketItemModel> get items {
+  List<BasketItemModel>? get items {
+    final value = _items;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_items);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final UserModel user;
+  final UserModel? user;
 
   @override
   String toString() {
@@ -186,19 +192,19 @@ class _$_BasketModel implements _BasketModel {
 
 abstract class _BasketModel implements BasketModel {
   factory _BasketModel(
-      {required final int id,
-      required final List<BasketItemModel> items,
-      required final UserModel user}) = _$_BasketModel;
+      {required final int? id,
+      required final List<BasketItemModel>? items,
+      required final UserModel? user}) = _$_BasketModel;
 
   factory _BasketModel.fromJson(Map<String, dynamic> json) =
       _$_BasketModel.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  List<BasketItemModel> get items;
+  List<BasketItemModel>? get items;
   @override
-  UserModel get user;
+  UserModel? get user;
   @override
   @JsonKey(ignore: true)
   _$$_BasketModelCopyWith<_$_BasketModel> get copyWith =>

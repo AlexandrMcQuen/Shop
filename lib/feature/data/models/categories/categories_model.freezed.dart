@@ -20,9 +20,9 @@ CategoriesModel _$CategoriesModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CategoriesModel {
-  int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get slug => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get slug => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $CategoriesModelCopyWith<$Res> {
   factory $CategoriesModelCopyWith(
           CategoriesModel value, $Res Function(CategoriesModel) then) =
       _$CategoriesModelCopyWithImpl<$Res>;
-  $Res call({int id, String title, String slug});
+  $Res call({int? id, String? title, String? slug});
 }
 
 /// @nodoc
@@ -57,15 +57,15 @@ class _$CategoriesModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       slug: slug == freezed
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -77,7 +77,7 @@ abstract class _$$_CategoriesModelCopyWith<$Res>
           _$_CategoriesModel value, $Res Function(_$_CategoriesModel) then) =
       __$$_CategoriesModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, String slug});
+  $Res call({int? id, String? title, String? slug});
 }
 
 /// @nodoc
@@ -101,15 +101,15 @@ class __$$_CategoriesModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       slug: slug == freezed
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -124,11 +124,11 @@ class _$_CategoriesModel implements _CategoriesModel {
       _$$_CategoriesModelFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String slug;
+  final String? slug;
 
   @override
   String toString() {
@@ -168,19 +168,19 @@ class _$_CategoriesModel implements _CategoriesModel {
 
 abstract class _CategoriesModel implements CategoriesModel {
   factory _CategoriesModel(
-      {required final int id,
-      required final String title,
-      required final String slug}) = _$_CategoriesModel;
+      {required final int? id,
+      required final String? title,
+      required final String? slug}) = _$_CategoriesModel;
 
   factory _CategoriesModel.fromJson(Map<String, dynamic> json) =
       _$_CategoriesModel.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get slug;
+  String? get slug;
   @override
   @JsonKey(ignore: true)
   _$$_CategoriesModelCopyWith<_$_CategoriesModel> get copyWith =>

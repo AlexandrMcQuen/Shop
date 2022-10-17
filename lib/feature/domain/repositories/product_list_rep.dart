@@ -2,9 +2,8 @@ import 'package:shop/feature/domain/entities/categories/categories_list_entity.d
 import 'package:shop/feature/domain/entities/products/list_item_entity.dart';
 
 
-
 abstract class ProductListRep{
-  Future<ListItemEntity> getAll({required String id, required int page});
+  Future<ListItemEntity?> getAll({required String id, required int page});
 
-  Future<CategoriesListEntity> getCategories();
+  Future<CategoriesListEntity?> getCategories();
 }

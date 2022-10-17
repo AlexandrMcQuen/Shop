@@ -5,6 +5,7 @@ import 'package:shop/feature/domain/entities/order/order_entity.dart';
 
 import '../../domain/entities/order/status_order_entity.dart';
 
+/*
 abstract class OrderState extends Equatable{
   const OrderState();
 
@@ -67,3 +68,5 @@ class OrderCubit extends Cubit<OrderState>{
     }
   }
 }
+
+ */
