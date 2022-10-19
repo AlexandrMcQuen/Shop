@@ -10,44 +10,49 @@ import 'package:shop/feature/domain/repositories/product_list_rep.dart';
 
 import '../mappers/products/list_item_mapper.dart';
 
-class ProductListRepData extends ProductListRep{
-  final _baseUrl = 'https://vue-study.skillbox.cc';
+class ProductListRepData extends ProductListRep {
+  final _baseUrl = 'vue-study.skillbox.cc';
   final CategoriesListMapper categoriesListMapper;
   final ListItemMapper listItemMapper;
 
-  ProductListRepData({required this.categoriesListMapper, required this.listItemMapper});
-  
-
+  ProductListRepData(
+      {required this.categoriesListMapper, required this.listItemMapper});
 
   @override
-  Future<CategoriesListEntity?> getCategories() async{
-    try{
-      var request = await http.get(Uri.parse('$_baseUrl/api/productCategories'));
+  Future<CategoriesListEntity?> getCategories() async {
+    try {
+      print(1);
+      var request =
+          await http.get(Uri.https(_baseUrl, '/api/productCategories'));
       var jsonRequest = json.decode(request.body);
       final response = CategoriesListModel.fromJson(jsonRequest);
+      print(response);
       final categories = categoriesListMapper.map(response);
       return categories;
-
-    } catch(e){
+    } catch (e) {
       throw Error();
     }
   }
 
   @override
-  Future<ListItemEntity?> getAll({required page, required id}) async{
-    try{
-      var request = await http.get(Uri.https(_baseUrl, '/api/products', <String, String>{
+  Future<ListItemEntity?> getAll({required int page, required String id}) async {
+    try {
+      print(1);
+      var requestAll = await http.get(Uri.https(
+          _baseUrl, '/api/products', {
         'categoryId': id,
         'page': page.toString(),
-        'limit': 5.toString()
+        'limit': 100.toString(),
       }));
-      var jsonRequest = json.decode(request.body);
-      final response = ListItemModel.fromJson(jsonRequest);
-      final list = listItemMapper.map(response);
+      print(requestAll);
+      var jsonRequest = json.decode(requestAll.body);
+      final responseAll = ListItemModel.fromJson(jsonRequest);
+      print(responseAll);
+      final list = listItemMapper.map(responseAll);
       return list;
-    } catch (e){
+    } catch (e, s) {
+      print('$e,$s');
       throw Error();
     }
   }
-  
 }

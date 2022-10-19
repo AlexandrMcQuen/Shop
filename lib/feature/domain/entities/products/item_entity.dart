@@ -11,13 +11,7 @@ class ItemEntity extends Equatable{
   final int? price;
   final List<ColorsEntity>? colors;
 
-  const ItemEntity({
-    required this.id,
-    required this.title,
-    required this.slug,
-    required this.image,
-    required this.price,
-    required this.colors});
+  const ItemEntity({required this.id, required this.title, required this.slug, required this.image, required this.price, required this.colors});
 
   @override
 

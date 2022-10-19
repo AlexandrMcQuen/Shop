@@ -4,8 +4,8 @@ import 'package:shop/feature/data/repositories/orders_rep.dart';
 import 'package:shop/feature/domain/entities/order/order_entity.dart';
 
 import '../../domain/entities/order/status_order_entity.dart';
+import '../../domain/repositories/orders_rep.dart';
 
-/*
 abstract class OrderState extends Equatable{
   const OrderState();
 
@@ -17,12 +17,16 @@ class LoadingCreateOrderState extends OrderState{
   const LoadingCreateOrderState();
 }
 
+class EmptyOrderState extends OrderState{
+  const EmptyOrderState();
+}
+
 class ErrorOrderState extends OrderState{
   const ErrorOrderState();
 }
 
 class LoadedCreateOrderState extends OrderState{
-  final OrderEntity loadedCreateOrder;
+  final OrderEntity? loadedCreateOrder;
 
   const LoadedCreateOrderState({required this.loadedCreateOrder});
 
@@ -35,7 +39,7 @@ class LoadingOrderState extends OrderState{
 }
 
 class LoadedOrderState extends OrderState{
-  final OrderStatusEntity loadedOrder;
+  final OrderStatusEntity? loadedOrder;
 
   const LoadedOrderState({required this.loadedOrder});
 
@@ -44,14 +48,15 @@ class LoadedOrderState extends OrderState{
 }
 
 class OrderCubit extends Cubit<OrderState>{
-  final OrderRepData orderRep;
+  final OrderRep orderRep;
 
   OrderCubit(this.orderRep) : super(const LoadingOrderState());
 
-  Future<OrderEntity?> createOrder({required name, required phone, required email, required address, required comment}) async{
+  Future<OrderEntity?> createOrder({required String name, required String phone, required String email, required String address, required String comment}) async{
     emit(const LoadingCreateOrderState());
     try{
       final result = await orderRep.createOrder(name: name, address: address, phone: phone, email: email, comment: comment);
+
       emit(LoadedCreateOrderState(loadedCreateOrder: result));
     }catch(e){
       emit(const ErrorOrderState());
@@ -68,5 +73,3 @@ class OrderCubit extends Cubit<OrderState>{
     }
   }
 }
-
- */

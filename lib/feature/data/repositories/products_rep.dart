@@ -16,7 +16,7 @@ class ProductRepData implements ProductRep{
   @override
   Future<ItemEntity?> getProducts({required id}) async{
     try{
-      var request = await http.get(Uri.parse('$_baseUrl/api/products/$id'));
+      var request = await http.get(Uri.https(_baseUrl, '/api/products/$id'));
       var jsonRequest = json.decode(request.body);
       final response = ItemModel.fromJson(jsonRequest);
       final item = itemsMapper.map(response);

@@ -6,6 +6,7 @@ import 'package:shop/feature/domain/repositories/products_rep.dart';
 
 import '../../ui/item/item_card.dart';
 
+
 class ItemPage extends StatelessWidget {
   final int id;
 
@@ -51,7 +52,7 @@ class _ItemWidgetState extends State<ItemWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ItemCardWidget(
-                      id: state!.loadedItem!.id!,
+                      id: state.loadedItem!.id!,
                       url: state.loadedItem!.image!.file!.url!,
                       price: state.loadedItem!.price!,
                       colors: state.loadedItem!.colors!,
@@ -70,5 +71,6 @@ class _ItemWidgetState extends State<ItemWidget> {
         });
   }
 }
+
 
 

@@ -1,16 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:shop/feature/cubit/basket/basket_page.dart';
+import 'package:shop/feature/cubit/catalog/catalog_page.dart';
 
 import 'package:shop/feature/cubit/item/item_page.dart';
+import 'package:shop/feature/cubit/order/order_create_page.dart';
 import 'package:shop/feature/data/data_source/store.dart';
+import 'package:shop/feature/data/mappers/products/colors_mapper.dart';
 import 'package:shop/feature/data/mappers/products/items_mapper.dart';
 import 'package:shop/feature/data/mappers/user/user_mapper.dart';
 import 'package:shop/feature/data/repositories/products_rep.dart';
 import 'package:shop/feature/data/repositories/users_rep.dart';
 
 import 'development.dart';
-import 'feature/cubit/catalog/catalog_page.dart';
 import 'feature/cubit/catalog/category_page.dart';
 import 'feature/cubit/login/login_page.dart';
 
@@ -21,9 +24,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: CatalogPage(id: ''),
+    return MaterialApp(
+      home: MyHome()
     );
   }
 }
-
+class MyHome extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: CupertinoButton(
+        onPressed: () {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (ctx) => const BasketPage()));
+        },
+        child: Text('asd'),
+      ),
+    );
+  }
+}

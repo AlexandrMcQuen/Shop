@@ -10,14 +10,14 @@ import '../data_source/store.dart';
 import '../models/baskets/baskets_model.dart';
 
 class BasketRepData implements BasketRep{
-  final _baseUrl = 'https://vue-study.skillbox.cc';
+  final _baseUrl = 'vue-study.skillbox.cc';
   final BasketMapper basketMapper;
   final Store _store;
 
   BasketRepData(this._store, {required this.basketMapper});
   
   @override
-  Future addItem({required int itemId}) async{
+  Future<void> addItem({required int itemId}) async{
     try{
       final completer = Completer();
       final request = await http.post(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '1'});
@@ -29,7 +29,7 @@ class BasketRepData implements BasketRep{
   }
 
   @override
-  Future changeQuantity({required int quantity, required int itemId}) async{
+  Future<void> changeQuantity({required int quantity, required int itemId}) async{
     try{
       final completer = Completer();
       final request = await http.put(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '$quantity'});
@@ -41,7 +41,7 @@ class BasketRepData implements BasketRep{
   }
 
   @override
-  Future deleteItem({required int itemId}) async{
+  Future<void> deleteItem({required int itemId}) async{
     try{
       final completer = Completer();
       final request = await http.delete(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId'});
@@ -55,7 +55,7 @@ class BasketRepData implements BasketRep{
   @override
   Future<BasketEntity?> getBasket() async{
     try{
-      var request = await http.get(Uri.parse('$_baseUrl/api/baskets'));
+      var request = await http.get(Uri.https(_baseUrl, '/api/baskets'));
       var jsonRequest = json.decode(request.body);
       final response = BasketModel.fromJson(jsonRequest);
       final basket = basketMapper.map(response);

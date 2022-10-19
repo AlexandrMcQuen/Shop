@@ -6,8 +6,6 @@ import 'package:shop/feature/domain/entities/products/item_entity.dart';
 import 'package:shop/feature/domain/repositories/product_list_rep.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-import '../item/item_page.dart';
-
 class CatalogPage extends StatelessWidget {
   final String id;
 
@@ -49,46 +47,41 @@ class _CatalogWidgetState extends State<CatalogWidget> {
 
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Catalog'),
-        ),
-        body: BlocConsumer<CatalogCubit, CatalogState>(
-            builder: (context, state){
-              if (state is ErrorCatalogState){
-                return const Text('Error');
-              } else {
-                return CupertinoScrollbar(
-                  child: CustomScrollView(
-                    slivers: [
-                      PagedSliverList.separated(
-                          pagingController: _pagingController,
-                          builderDelegate: PagedChildBuilderDelegate<ItemEntity>(
-                              itemBuilder: (BuildContext context, items, index){
-                                return Padding(
+      appBar: AppBar(
+        title: const Text('Shop Catalog'),
+      ),
+      body: BlocConsumer<CatalogCubit, CatalogState>(
+          builder: (context, state){
+            return CupertinoScrollbar(
+                child: CustomScrollView(
+                  slivers: [
+                    PagedSliverList.separated(
+                        pagingController: _pagingController,
+                        builderDelegate: PagedChildBuilderDelegate<ItemEntity>(
+                            itemBuilder: (BuildContext context, items, index){
+                              return Padding(
                                   padding: const EdgeInsets.only(bottom: 20),
                                   child: ListItem(
-                                      items: items
+                                    items: items
                                   ),);
-                              }),
-                          separatorBuilder: (context, index){
-                            return const SizedBox(height: 10,);
-                          })
-                    ],
-                  )
-              );
+                            }),
+                        separatorBuilder: (context, index){
+                          return const SizedBox(height: 10,);
+                        })
+                  ],
+                ));
+          },
+          listener: (context, state) async{
+            if (state is LoadedCatalogState) {
+              if (state.loadedCatalog?.pagination!.page ==
+                  state.loadedCatalog?.pagination!.pages) {
+                _pagingController.appendLastPage(state.loadedCatalog!.items!);
+              } else {
+                _pagingController.appendPage(state.loadedCatalog!.items!,
+                    state.loadedCatalog!.pagination!.page! + 1);
               }
-            },
-            listener: (context, state) async{
-              if (state is LoadedCatalogState) {
-                if (state.loadedCatalog?.info?.page ==
-                    state.loadedCatalog?.info?.pages) {
-                  _pagingController.appendLastPage(state.loadedCatalog!.items!);
-                } else {
-                  _pagingController.appendPage(state.loadedCatalog!.items!,
-                      state.loadedCatalog!.info!.page! + 1);
-                }
-              }
-            })
+            }
+          })
     );
   }
 }
@@ -116,15 +109,26 @@ class ListItem extends StatelessWidget {
               style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
             Text("${items.price}",
               style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-            Text('${items.image!.file!.url}',
+            Text('${items.image?.file?.url}',
               style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-            ItemPage(id: items!.id!)
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

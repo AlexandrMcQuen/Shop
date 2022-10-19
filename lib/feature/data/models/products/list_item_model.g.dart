@@ -11,13 +11,13 @@ _$_ListItemModel _$$_ListItemModelFromJson(Map<String, dynamic> json) =>
       items: (json['items'] as List<dynamic>?)
           ?.map((e) => ItemModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      info: json['info'] == null
+      paging: json['paging'] == null
           ? null
-          : InfoModel.fromJson(json['info'] as Map<String, dynamic>),
+          : PaginationModel.fromJson(json['paging'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ListItemModelToJson(_$_ListItemModel instance) =>
     <String, dynamic>{
       'items': instance.items,
-      'info': instance.info,
+      'paging': instance.paging,
     };

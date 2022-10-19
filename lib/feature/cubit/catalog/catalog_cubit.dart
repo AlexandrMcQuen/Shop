@@ -48,7 +48,7 @@ class CatalogCubit extends Cubit<CatalogState>{
   CatalogCubit(this.productListRep) : super(const LoadingCatalogState());
 
   Future<void> fetchCategory() async{
-    emit(const LoadingCategoryState()); 
+    emit(const LoadingCategoryState());
     try{
       final resultCategory = await productListRep.getCategories();
       emit(LoadedCategoryState(loadedCategory: resultCategory));
@@ -57,7 +57,7 @@ class CatalogCubit extends Cubit<CatalogState>{
     }
   }
 
-  Future<void> fetchCatalog({required id, required page}) async{
+  Future<void> fetchCatalog({required String id, required int page}) async{
     emit(const LoadingCatalogState());
     try{
       final resultCatalog = await productListRep.getAll(id: id, page: page);

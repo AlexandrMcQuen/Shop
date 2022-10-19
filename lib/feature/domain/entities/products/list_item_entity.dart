@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 
-import 'info_entity.dart';
+import 'pagination_entity.dart';
 import 'item_entity.dart';
 
 class ListItemEntity extends Equatable{
   final List<ItemEntity>? items;
-  final InfoEntity? info;
+  final PaginationEntity? pagination;
 
 
-  const ListItemEntity({required this.items, required this.info});
+  const ListItemEntity({required this.items, required this.pagination});
 
   @override
-  List<Object?> get props => [items, info];
+  List<Object?> get props => [items, pagination];
 }

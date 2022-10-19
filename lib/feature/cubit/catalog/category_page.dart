@@ -7,6 +7,7 @@ import '../../ui/catalog/category.dart';
 import 'catalog_cubit.dart';
 
 
+
 class CategoryPage extends StatelessWidget {
   const CategoryPage({Key? key}) : super(key: key);
 
@@ -51,7 +52,7 @@ class _CategoryPageWidgetState extends State<_CategoryPageWidget> {
                 separatorBuilder: (context, index){
                   return const Divider(height: 0,);
                 },
-                itemCount: state.loadedCategory!.items!.length);
+                itemCount: state.loadedCategory!.items!.length!);
           } else if(state is LoadingCategoryState){
             return const Center(
               child: CircularProgressIndicator(),
@@ -64,5 +65,4 @@ class _CategoryPageWidgetState extends State<_CategoryPageWidget> {
     );
   }
 }
-
 

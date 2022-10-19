@@ -13,7 +13,7 @@ import '../models/order/orders_model.dart';
 
 class OrderRepData extends OrderRep{
   late final OrderStatusMapper orderStatusMapper;
-  final _baseUrl = 'https://vue-study.skillbox.cc';
+  final _baseUrl = 'vue-study.skillbox.cc';
   late final Store _store;
   late final OrderMapper orderMapper;
 
