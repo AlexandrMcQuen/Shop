@@ -40,6 +40,7 @@ dependencies:
   build_runner: ^2.2.1
   json_serializable: ^6.4.0
   easy_mask: ^2.0.1
+
   flutter:
     sdk: flutter
 

@@ -1,11 +1,11 @@
 import 'package:shop/feature/cubit/login/login_cubit.dart';
-import 'package:shop/feature/cubit/login/two.dart';
 import 'package:shop/feature/ui/login/login.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/repositories/users_rep.dart';
+import '../catalog/catalog_page.dart';
 
 class UserLoginPage extends StatelessWidget {
   const UserLoginPage({Key? key}) : super(key: key);
@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Two()));
+                                  builder: (context) => const CatalogPage(id: '',)));
                         },
                         style: ElevatedButton.styleFrom(
                             fixedSize: const Size(200, 50),
@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Two()));
+                                  builder: (context) => const CatalogPage(id: '')));
                         },
                         style: ElevatedButton.styleFrom(
                             fixedSize: const Size(200, 50),

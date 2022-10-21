@@ -1,6 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:shop/feature/ui/item/add_delete_button.dart';
+
 
 import '../../domain/entities/products/colors_entity.dart';
+
+
+
+
 
 class ItemCardWidget extends StatelessWidget {
   final int id;
@@ -13,17 +21,64 @@ class ItemCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(title),
-          const SizedBox(height: 10,),
-          Text('$price'),
-          const SizedBox(height: 10,),
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+                child: Image.network(url)),
+            const SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: Colors.green[500],
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                child: Text('$price ₽',
+                style:  TextStyle(color: Colors.indigo[100], fontSize: 30),),
+              ),
+            ),
+            const SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(title,
+                  style:  TextStyle(color: Colors.indigo[100], fontSize: 30, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(height: 10,),
+            SizedBox(
+              height: 50,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index){
+                    return Container(
+                      width: 50,
+                      padding: const EdgeInsets.all(5),
+                      margin: const EdgeInsets.only(right: 10, left: 10),
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2),
+                        color: HexColor('${colors[index].code}')
+                      ),
+                    );
+                  },
+                  itemCount: colors.length,),
+            ),
+            const SizedBox(height: 10,),
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              child: SizedBox(
+                height: 50,
+                  width: 50,
+                  child: ADButton(id: id,)),
+            )
 
-        ],
+          ],
+        ),
       ),
     );
   }

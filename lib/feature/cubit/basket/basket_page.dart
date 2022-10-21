@@ -34,8 +34,10 @@ class _BasketPageWidgetState extends State<BasketPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo[800],
         title: const Text('Basket'),
       ),
+      backgroundColor: Colors.indigo[100],
       body: BlocBuilder<BasketCubit, BasketState>(
         builder: (context, state){
           if (state is LoadedBasketState){

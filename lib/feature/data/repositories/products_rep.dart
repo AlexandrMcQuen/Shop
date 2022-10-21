@@ -8,7 +8,7 @@ import '../mappers/products/items_mapper.dart';
 import '../models/products/items_model.dart';
 
 class ProductRepData implements ProductRep{
-  final _baseUrl = 'https://vue-study.skillbox.cc';
+  final _baseUrl = 'vue-study.skillbox.cc';
   final ItemsMapper itemsMapper;
 
   ProductRepData({required this.itemsMapper});

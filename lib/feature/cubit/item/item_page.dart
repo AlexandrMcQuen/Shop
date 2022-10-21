@@ -8,7 +8,7 @@ import '../../ui/item/item_card.dart';
 
 
 class ItemPage extends StatelessWidget {
-  final int id;
+  final int? id;
 
   const ItemPage({Key? key, required this.id}) : super(key: key);
 
@@ -22,7 +22,7 @@ class ItemPage extends StatelessWidget {
 }
 
 class ItemWidget extends StatefulWidget {
-  final int id;
+  final int? id;
 
   const ItemWidget({Key? key, required this.id}) : super(key: key);
 
@@ -45,11 +45,14 @@ class _ItemWidgetState extends State<ItemWidget> {
           if (state is LoadedItemState){
             return Scaffold(
               appBar: AppBar(
+                backgroundColor: Colors.indigo[800],
                 title: Text(state.loadedItem!.title!),
               ),
+              backgroundColor: Colors.indigo[800],
               body: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ItemCardWidget(
                       id: state.loadedItem!.id!,
@@ -62,7 +65,7 @@ class _ItemWidgetState extends State<ItemWidget> {
               ),
             );
           }
-          if(state is Error){
+          if(state is ErrorItemState){
             return const Text('Error');
           }
           return const Center(

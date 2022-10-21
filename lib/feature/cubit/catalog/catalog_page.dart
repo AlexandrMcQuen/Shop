@@ -1,7 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:shop/feature/cubit/basket/basket_page.dart';
 import 'package:shop/feature/cubit/catalog/catalog_cubit.dart';
+import 'package:shop/feature/cubit/catalog/category_page.dart';
+import 'package:shop/feature/cubit/item/item_page.dart';
+import 'package:shop/feature/cubit/login/login_page.dart';
+import 'package:shop/feature/cubit/order/order_create_page.dart';
+import 'package:shop/feature/cubit/order/order_info_page.dart';
 import 'package:shop/feature/domain/entities/products/item_entity.dart';
 import 'package:shop/feature/domain/repositories/product_list_rep.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -47,9 +54,47 @@ class _CatalogWidgetState extends State<CatalogWidget> {
 
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Shop Catalog'),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.indigo[300],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+                onPressed: () => Navigator.push(
+                    context, MaterialPageRoute(
+                    builder: (context) => const BasketPage())),
+                icon: const Icon(Icons.shopping_basket)),
+            IconButton(
+                onPressed: () => Navigator.push(
+                    context, MaterialPageRoute(
+                    builder: (context) => const OrderCreatePage())),
+                icon: const Icon(Icons.account_balance_outlined)),
+            IconButton(
+                onPressed: () => Navigator.push(
+                    context, MaterialPageRoute(
+                    builder: (context) => const OrderInfoPage())),
+                icon: const Icon(Icons.assessment_sharp))
+          ],
+        ),
       ),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text('Shop Catalog'),
+        backgroundColor: Colors.indigo[800],
+        actions: [
+          IconButton(
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(
+                  builder: (context) => const CategoryPage())),
+              icon: const Icon(Icons.filter_list)),
+          IconButton(
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(
+                  builder: (context) => const UserLoginPage())),
+              icon: const Icon(Icons.logout))
+        ],
+      ),
+      backgroundColor: Colors.indigo[100],
       body: BlocConsumer<CatalogCubit, CatalogState>(
           builder: (context, state){
             return CupertinoScrollbar(
@@ -60,13 +105,13 @@ class _CatalogWidgetState extends State<CatalogWidget> {
                         builderDelegate: PagedChildBuilderDelegate<ItemEntity>(
                             itemBuilder: (BuildContext context, items, index){
                               return Padding(
-                                  padding: const EdgeInsets.only(bottom: 20),
+                                  padding: const EdgeInsets.only(bottom: 0),
                                   child: ListItem(
                                     items: items
                                   ),);
                             }),
                         separatorBuilder: (context, index){
-                          return const SizedBox(height: 10,);
+                          return const SizedBox(height: 0,);
                         })
                   ],
                 ));
@@ -93,26 +138,44 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(5),
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: Colors.indigo[900],
-          borderRadius: BorderRadius.circular(10)
-      ),
-      child: Center(
-        child: Column(
-          children: [
-            Text("${items.id}",
-              style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-            Text('${items.title}',
-              style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-            Text("${items.price}",
-              style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-            Text('${items.image?.file?.url}',
-              style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
-          ],
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context, MaterialPageRoute(
+          builder: (context) => ItemPage(id: items.id))),
+      child: Container(
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: Colors.indigo[900],
+            borderRadius: BorderRadius.circular(10)
         ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+                  Center(
+                      child: SizedBox(
+                        height: 200,
+                          child: Image.network('${items.image!.file!.url}', fit: BoxFit.fill,))),
+              const SizedBox(height: 10,),
+              Container(
+                padding: const EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  color: Colors.green[500],
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                child: Text("${items.price} ₽",
+                style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
+              ),
+
+              const SizedBox(height: 10,),
+              Text('${items.title}',
+              style: TextStyle(color: Colors.indigo[100], fontSize: 20),),
+              const SizedBox(height: 10,),
+
+            ],
+          ),
+
       ),
     );
   }

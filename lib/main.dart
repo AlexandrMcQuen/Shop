@@ -24,24 +24,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyHome()
-    );
-  }
-}
-class MyHome extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: CupertinoButton(
-        onPressed: () {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (ctx) => const BasketPage()));
-        },
-        child: Text('asd'),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: UserLoginPage()
     );
   }
 }

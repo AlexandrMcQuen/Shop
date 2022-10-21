@@ -21,12 +21,12 @@ class ProductListRepData extends ProductListRep {
   @override
   Future<CategoriesListEntity?> getCategories() async {
     try {
-      print(1);
+
       var request =
           await http.get(Uri.https(_baseUrl, '/api/productCategories'));
       var jsonRequest = json.decode(request.body);
       final response = CategoriesListModel.fromJson(jsonRequest);
-      print(response);
+
       final categories = categoriesListMapper.map(response);
       return categories;
     } catch (e) {
@@ -37,17 +37,17 @@ class ProductListRepData extends ProductListRep {
   @override
   Future<ListItemEntity?> getAll({required int page, required String id}) async {
     try {
-      print(1);
+
       var requestAll = await http.get(Uri.https(
           _baseUrl, '/api/products', {
         'categoryId': id,
         'page': page.toString(),
         'limit': 100.toString(),
       }));
-      print(requestAll);
+
       var jsonRequest = json.decode(requestAll.body);
       final responseAll = ListItemModel.fromJson(jsonRequest);
-      print(responseAll);
+
       final list = listItemMapper.map(responseAll);
       return list;
     } catch (e, s) {
