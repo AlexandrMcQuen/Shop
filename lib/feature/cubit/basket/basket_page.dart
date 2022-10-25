@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../domain/repositories/basket_rep.dart';
 import 'basket_cubit.dart';
 
 
@@ -11,7 +12,7 @@ class BasketPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => BasketCubit(context.read()),
+        create: (_) => BasketCubit(context.read<BasketRep>()),
         child: const BasketPageWidget());
   }
 }
@@ -58,7 +59,7 @@ class _BasketPageWidgetState extends State<BasketPageWidget> {
             );
           }
           if (state is ErrorBasketState){
-            return Text('Error');
+            return const Text('Error');
           }
           return const Center(
             child: CircularProgressIndicator(),

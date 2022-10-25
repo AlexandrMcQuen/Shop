@@ -1,4 +1,6 @@
+import 'package:shop/feature/cubit/basket/basket_cubit.dart';
 import 'package:shop/feature/cubit/login/login_cubit.dart';
+import 'package:shop/feature/domain/repositories/basket_rep.dart';
 import 'package:shop/feature/ui/login/login.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,7 +17,9 @@ class UserLoginPage extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-              create: (_) => UserLoginCubit(context.read<UserRep>()))
+              create: (_) => UserLoginCubit(context.read<UserRep>())),
+          BlocProvider(
+              create: (_) => BasketCubit(context.read<BasketRep>()))
         ], child: const LoginPage());
   }
 }
@@ -46,8 +50,8 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                        onPressed: (){
-                          context.read<UserLoginCubit>().fetchLogin();
+                        onPressed: () async{
+                          await context.read<BasketCubit>().fetchBasket();
                           Navigator.push(
                               context,
                               MaterialPageRoute(

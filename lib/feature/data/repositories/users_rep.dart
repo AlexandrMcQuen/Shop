@@ -10,7 +10,7 @@ import '../data_source/store.dart';
 
 class UserRepData implements UserRep{
   final UserMapper userMapper;
-  final _baseUrl = 'https://vue-study.skillbox.cc';
+  final _baseUrl = 'vue-study.skillbox.cc';
   final Store store;
 
   UserRepData(this.store, this.userMapper);
@@ -18,10 +18,9 @@ class UserRepData implements UserRep{
   @override
   Future<UserEntity?> getUser() async {
     try{
-      var request = await http.get(Uri.parse('$_baseUrl/api/users/accessKey'));
+      var request = await http.get(Uri.https(_baseUrl, '/api/users/accessKey'));
       var jsonRequest = json.decode(request.body);
       final response = UserModel.fromJson(jsonRequest);
-      print(response);
       final user = userMapper.map(response);
       await store.setAccessKey(user?.accessKey);
       print('$user');

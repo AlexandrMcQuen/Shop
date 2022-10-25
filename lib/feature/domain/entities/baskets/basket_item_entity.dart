@@ -12,6 +12,6 @@ class BasketItemEntity extends Equatable{
 
   @override
 
-  List<Object?> get props => [id, title, quantity];
+  List<Object?> get props => [id, title, quantity, item];
 
 }

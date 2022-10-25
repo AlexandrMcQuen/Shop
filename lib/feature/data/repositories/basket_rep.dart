@@ -9,18 +9,20 @@ import 'package:http/http.dart' as http;
 import '../data_source/store.dart';
 import '../models/baskets/baskets_model.dart';
 
+
 class BasketRepData implements BasketRep{
   final _baseUrl = 'vue-study.skillbox.cc';
   final BasketMapper basketMapper;
   final Store _store;
 
   BasketRepData(this._store, {required this.basketMapper});
-  
+
+
   @override
-  Future<void> addItem({required int itemId}) async{
+  Future<bool> addItem({required int itemId}) async{
     try{
-      final completer = Completer();
-      final request = await http.post(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '1'});
+      final completer = Completer<bool>();
+      final addRequest = await http.post(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '1'});
       completer.complete(true);
       return completer.future;
     }catch(e){
@@ -28,10 +30,14 @@ class BasketRepData implements BasketRep{
     }
   }
 
+
+
+
   @override
-  Future<void> changeQuantity({required int quantity, required int itemId}) async{
+  Future<bool> changeQuantity({required int quantity, required int itemId}) async{
     try{
-      final completer = Completer();
+      final completer = Completer<bool>();
+      print('$itemId');
       final request = await http.put(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '$quantity'});
       completer.complete(true);
       return completer.future;
@@ -41,9 +47,9 @@ class BasketRepData implements BasketRep{
   }
 
   @override
-  Future<void> deleteItem({required int itemId}) async{
+  Future<bool> deleteItem({required int itemId}) async{
     try{
-      final completer = Completer();
+      final completer = Completer<bool>();
       final request = await http.delete(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId'});
       completer.complete(true);
       return completer.future;
@@ -55,7 +61,7 @@ class BasketRepData implements BasketRep{
   @override
   Future<BasketEntity?> getBasket() async{
     try{
-      var request = await http.get(Uri.https(_baseUrl, '/api/baskets'));
+      var request = await http.get(Uri.https(_baseUrl, '/api/baskets', <String, String> {'userAccessKey': '${_store.getAccessKey()}'}));
       var jsonRequest = json.decode(request.body);
       final response = BasketModel.fromJson(jsonRequest);
       final basket = basketMapper.map(response);
@@ -66,3 +72,4 @@ class BasketRepData implements BasketRep{
   }
   
 }
+

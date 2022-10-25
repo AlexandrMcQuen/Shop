@@ -29,14 +29,14 @@ class UserLoginLoaded extends UserLoginState{
 }
 
 class UserLoginCubit extends Cubit<UserLoginState>{
-  UserLoginCubit(this.userReps) : super(const UserLoginLoading());
+  UserLoginCubit(this._userReps) : super(const UserLoginLoading());
   
-  final UserRep? userReps;
+  final UserRep? _userReps;
   
   Future<UserEntity?> fetchLogin() async{
     emit(const UserLoginLoading());
     try{
-      final result = await userReps!.getUser();
+      final result = await _userReps!.getUser();
       emit(UserLoginLoaded(userLoginLoaded: result));
     } catch(e){
       emit(const UserLoginError());
