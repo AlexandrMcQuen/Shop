@@ -19,12 +19,9 @@ class BasketRepData implements BasketRep{
 
 
   @override
-  Future<bool> addItem({required int itemId}) async{
+  Future<void> addItem({required int itemId}) async{
     try{
-      final completer = Completer<bool>();
       final addRequest = await http.post(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '1'});
-      completer.complete(true);
-      return completer.future;
     }catch(e){
       throw Error();
     }
@@ -34,25 +31,19 @@ class BasketRepData implements BasketRep{
 
 
   @override
-  Future<bool> changeQuantity({required int quantity, required int itemId}) async{
+  Future<void> changeQuantity({required int quantity, required int itemId}) async{
     try{
-      final completer = Completer<bool>();
       print('$itemId');
       final request = await http.put(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '$quantity'});
-      completer.complete(true);
-      return completer.future;
     } catch(e){
       throw Error();
     }
   }
 
   @override
-  Future<bool> deleteItem({required int itemId}) async{
+  Future<void> deleteItem({required int itemId}) async{
     try{
-      final completer = Completer<bool>();
       final request = await http.delete(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId'});
-      completer.complete(true);
-      return completer.future;
     } catch(e){
       throw Error();
     }
