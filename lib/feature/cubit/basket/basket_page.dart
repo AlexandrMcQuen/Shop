@@ -44,12 +44,12 @@ class _BasketPageWidgetState extends State<BasketPageWidget> {
           if (state is LoadedBasketState){
             return ListView.separated(
                 itemBuilder: (BuildContext context, index){
-                  return BasketWidget(id: state.loadedBasket.items![index].id, title: state.loadedBasket.items![index].title, quantity: state.loadedBasket.items![index].quantity);
+                  return BasketWidget(id: state.loadedBasket.items[index]?.id, title: state.loadedBasket.items[index]?.title, quantity: state.loadedBasket.items[index]?.quantity);
                 },
                 separatorBuilder: (context, index){
                   return const Divider(height: 0, color: Colors.black,);
                 },
-                itemCount: state.loadedBasket.items!.length);
+                itemCount: state.loadedBasket.items.length);
           }
           if (state is EmptyBasketState){
             return const Center(

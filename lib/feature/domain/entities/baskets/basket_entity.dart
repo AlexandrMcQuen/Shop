@@ -5,7 +5,7 @@ import 'basket_item_entity.dart';
 
 class BasketEntity extends Equatable{
   final int? id;
-  final List<BasketItemEntity>? items;
+  final List<BasketItemEntity?> items;
   final UserEntity? user;
 
   const BasketEntity({required this.id, required this.items, required this.user});

@@ -21,7 +21,9 @@ class BasketRepData implements BasketRep{
   @override
   Future<void> addItem({required int itemId}) async{
     try{
-      final addRequest = await http.post(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '1'});
+      print('$itemId');
+      await http.post(Uri.https(_baseUrl, '/api/baskets/products',
+          <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '1'});
     }catch(e){
       throw Error();
     }
@@ -33,8 +35,7 @@ class BasketRepData implements BasketRep{
   @override
   Future<void> changeQuantity({required int quantity, required int itemId}) async{
     try{
-      print('$itemId');
-      final request = await http.put(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '$quantity'});
+      await http.put(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '$quantity'});
     } catch(e){
       throw Error();
     }
@@ -43,7 +44,7 @@ class BasketRepData implements BasketRep{
   @override
   Future<void> deleteItem({required int itemId}) async{
     try{
-      final request = await http.delete(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId'});
+      await http.delete(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId'});
     } catch(e){
       throw Error();
     }
@@ -56,6 +57,7 @@ class BasketRepData implements BasketRep{
       var jsonRequest = json.decode(request.body);
       final response = BasketModel.fromJson(jsonRequest);
       final basket = basketMapper.map(response);
+      print('$basket}');
       return basket;
     } catch(e){
       throw Error();

@@ -95,10 +95,10 @@ class BasketCubit extends Cubit<BasketState> {
     emit(const LoadingBasketState());
     try {
       final basketResult = await basketRep.getBasket();
-      print('$basketResult');
-      if (basketResult!.items!.isNotEmpty) {
+
+      if (basketResult!.items.isNotEmpty) {
         emit(LoadedBasketState(loadedBasket: basketResult));
-        respBasketProducts.addAll(basketResult.items!.map((e) => e.item?.id));
+        respBasketProducts.addAll(basketResult.items.map((e) => e!.item?.id));
       }
       else {
         emit(const EmptyBasketState());
