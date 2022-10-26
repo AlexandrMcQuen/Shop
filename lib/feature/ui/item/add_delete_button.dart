@@ -36,27 +36,25 @@ class _AddDeleteButtonState extends State<AddDeleteButton>
         builder: (context, state){
           return Center(
             child: CupertinoButton(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              color: context.read<BasketCubit>().initialProductsId.contains(widget.id) ? Colors.red : Colors.green,
-              onPressed: (){
-                context.read<BasketCubit>().addOrDelete(id: widget.id!, value: context.read<BasketCubit>().initialProductsId.contains(widget.id));
-              },
-              child: Icon(
-                context.read<BasketCubit>().initialProductsId.contains(widget.id) ? Icons.delete_forever : Icons.add_shopping_cart_outlined,
-                size: 30,
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                color: context.read<BasketCubit>().initialProductsId.contains(widget.id) ? Colors.red : Colors.green,
+                onPressed: (){
+                  context.read<BasketCubit>().addOrDelete(id: widget.id!, value: context.read<BasketCubit>().initialProductsId.contains(widget.id));
+                },
+                child: Icon(
+                  context.read<BasketCubit>().initialProductsId.contains(widget.id) ? Icons.delete_forever : Icons.add_shopping_cart_outlined,
+                  size: 25,
+                ),
               ),
-            ),
           );
         },
         listener: (context, state){
           if(state is ItemBasketState){
             if (state.id == widget.id){
               setState(() {
-
               });
             } else{
               setState(() {
-
               });
             }
           }

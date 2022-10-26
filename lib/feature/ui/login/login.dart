@@ -7,14 +7,14 @@ class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 200, right: 20, left: 20,),
+      padding: const EdgeInsets.only(top: 150, right: 20, left: 20,),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('Top Shop',
+          Text('Shop',
             style: TextStyle(fontSize: 80, color: Colors.indigo[900], fontWeight: FontWeight.bold),),
-          const SizedBox(height: 100,),
+          const SizedBox(height: 70,),
           const UserLoginInput(),
           const SizedBox(height: 20),
           const UserPasswordInput(),
@@ -41,10 +41,8 @@ class _UserLoginInputState extends State<UserLoginInput> {
           filled: true,
           fillColor: Colors.indigo[100],
           icon: Icon(Icons.login, color: Colors.indigo[100],),
-          labelText: 'Login',
-          labelStyle: TextStyle(color: Colors.indigo[900]),
           hintText: 'Please enter your login',
-          hintStyle: TextStyle(color: Colors.indigo[300]),
+          hintStyle: TextStyle(color: Colors.indigo[300], fontSize: 20),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none
@@ -73,10 +71,8 @@ class _UserPasswordInputState extends State<UserPasswordInput> {
           filled: true,
           fillColor: Colors.indigo[100],
           icon: Icon(Icons.password, color: Colors.indigo[100],),
-          labelText: 'Password',
-          labelStyle: TextStyle(color: Colors.indigo[900]),
           hintText: 'Please enter your password',
-          hintStyle: TextStyle(color: Colors.indigo[300]),
+          hintStyle: TextStyle(color: Colors.indigo[300], fontSize: 20),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none

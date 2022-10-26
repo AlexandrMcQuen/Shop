@@ -28,9 +28,19 @@ class ItemCardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-                child: Image.network(url)),
+            Center(
+              child: Container(
+                width: 400,
+                height: 400,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                padding: const EdgeInsets.all(10),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                      child: Image.network(url))),
+            ),
             const SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -69,13 +79,7 @@ class ItemCardWidget extends StatelessWidget {
                   itemCount: colors.length,),
             ),
             const SizedBox(height: 10,),
-            Container(
-              padding: const EdgeInsets.only(left: 10),
-              child: SizedBox(
-                height: 50,
-                  width: 50,
-                  child: ADButton(id: id,)),
-            )
+            ADButton(id: id,),
 
           ],
         ),

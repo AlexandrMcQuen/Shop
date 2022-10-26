@@ -21,9 +21,10 @@ class BasketRepData implements BasketRep{
   @override
   Future<void> addItem({required int itemId}) async{
     try{
-      print('$itemId');
-      await http.post(Uri.https(_baseUrl, '/api/baskets/products',
-          <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '1'});
+      await http.post(Uri.https(_baseUrl,
+          '/api/baskets/products',
+          <String, String>{'userAccessKey': '${_store.getAccessKey()}'}),
+          body: {'productId': '$itemId', 'quantity': '1'});
     }catch(e){
       throw Error();
     }
@@ -35,16 +36,26 @@ class BasketRepData implements BasketRep{
   @override
   Future<void> changeQuantity({required int quantity, required int itemId}) async{
     try{
-      await http.put(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId', 'quantity': '$quantity'});
+
+      print('$itemId');
+      print('$quantity');
+      await http.put(Uri.https(_baseUrl,
+          '/api/baskets/products',
+          <String, String>{'userAccessKey': '${_store.getAccessKey()}'}),
+          body: {'productId': '$itemId', 'quantity': '$quantity'});
     } catch(e){
       throw Error();
     }
   }
 
   @override
-  Future<void> deleteItem({required int itemId}) async{
+  Future<bool>? deleteItem({required int itemId}) async{
     try{
+      final completer = Completer<bool>();
+      print('$itemId');
       await http.delete(Uri.https(_baseUrl, '/api/baskets/products', <String, String>{'userAccessKey': '${_store.getAccessKey()}'}), body: {'productId': '$itemId'});
+      completer.complete();
+      return completer.future;
     } catch(e){
       throw Error();
     }
@@ -57,8 +68,9 @@ class BasketRepData implements BasketRep{
       var jsonRequest = json.decode(request.body);
       final response = BasketModel.fromJson(jsonRequest);
       final basket = basketMapper.map(response);
-      print('$basket}');
+      print('$basket');
       return basket;
+
     } catch(e){
       throw Error();
     }

@@ -5,7 +5,7 @@ abstract class BasketRep{
 
   Future<void> addItem({required int itemId});
 
-  Future<void> deleteItem({required int itemId});
+  Future<bool>? deleteItem({required int itemId});
 
   Future<void> changeQuantity({required int quantity, required int itemId});
 }

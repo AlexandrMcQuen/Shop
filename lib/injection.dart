@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/feature/data/data_source/store.dart';
-import 'package:shop/feature/data/mappers/baskets/baskets_item_mapper.dart';
+import 'package:shop/feature/data/mappers/baskets/basket_item_mapper.dart';
 import 'package:shop/feature/data/mappers/baskets/baskets_mapper.dart';
 import 'package:shop/feature/data/mappers/categories/categories_list_mapper.dart';
 import 'package:shop/feature/data/mappers/categories/categories_mapper.dart';
@@ -34,11 +34,11 @@ Future<Widget> injection(Widget app) async{
   final imageMapper = ImageMapper(fileMapper: fileMapper);
   final itemsMapper = ItemsMapper(colorsMapper: colorsMapper, imageMapper: imageMapper);
   final infoMapper = PaginationMapper();
+  final basketItemMapper = BasketItemMapper(itemsMapper: itemsMapper);
   final userMapper = UserMapper();
   final listItemMapper = ListItemMapper(itemsMapper: itemsMapper, paginationMapper: infoMapper);
   final categoriesListMapper = CategoriesListMapper(categoriesMapper: categoriesMapper);
-  final basketsItemMapper = BasketsItemMapper(itemsMapper: itemsMapper);
-  final basketMapper = BasketMapper(userMapper: userMapper, basketsItemMapper: basketsItemMapper);
+  final basketMapper = BasketMapper(userMapper: userMapper, basketItemMapper: basketItemMapper);
 
   final productRep = ProductRepData(itemsMapper: itemsMapper);
   final userRep = UserRepData(store, userMapper);

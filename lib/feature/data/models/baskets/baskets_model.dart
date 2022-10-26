@@ -9,9 +9,11 @@ part 'baskets_model.g.dart';
 class BasketModel with _$BasketModel{
   factory BasketModel({
     required int? id,
-    required List<BasketItemModel?>? items,
+    required List<BasketItemModel?> items,
     required UserModel? user
 }) = _BasketModel;
 
   factory BasketModel.fromJson(Map<String, dynamic> json) => _$BasketModelFromJson(json);
+
+
 }

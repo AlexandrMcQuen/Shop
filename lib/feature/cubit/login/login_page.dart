@@ -40,59 +40,63 @@ class _LoginPageState extends State<LoginPage> {
         builder: (context, state){
           return Scaffold(
             backgroundColor: Colors.indigo[400],
-            body: Column(
-
-
-              children: [
-                const LoginWidget(),
-                const SizedBox(height: 30,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                        onPressed: () async{
-                          await context.read<BasketCubit>().fetchBasket();
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const CatalogPage(id: '',)));
-                        },
-                        style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(200, 50),
-                            backgroundColor: Colors.indigo[900],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)
-                            )
-                        ),
-                        child: Text(
-                            'Sign in',
-                            style:  TextStyle(
-                                color: Colors.indigo[100],
-                                fontSize: 30))),
-                    const SizedBox(width: 30,),
-                    ElevatedButton(
-                        onPressed: (){
-                          context.read<UserLoginCubit>().fetchLogin();
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const CatalogPage(id: '')));
-                        },
-                        style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(200, 50),
-                            backgroundColor: Colors.indigo[900],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)
-                            )
-                        ),
-                        child: Text(
-                            'Sign up',
-                            style:  TextStyle(
-                                color: Colors.indigo[100],
-                                fontSize: 30))),
-                  ],
-                )
-              ],
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Column(
+                    children: [
+                      const LoginWidget(),
+                      const SizedBox(height: 30,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                              onPressed: () async{
+                                await context.read<BasketCubit>().fetchBasket();
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const CatalogPage(id: '',)));
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  fixedSize: const Size(150, 50),
+                                  backgroundColor: Colors.indigo[900],
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15)
+                                  )
+                              ),
+                              child: Text(
+                                  'Sign in',
+                                  style:  TextStyle(
+                                      color: Colors.indigo[100],
+                                      fontSize: 30))),
+                          const SizedBox(width: 30,),
+                          ElevatedButton(
+                              onPressed: (){
+                                context.read<UserLoginCubit>().fetchLogin();
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const CatalogPage(id: '')));
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  fixedSize: const Size(150, 50),
+                                  backgroundColor: Colors.indigo[900],
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15)
+                                  )
+                              ),
+                              child: Text(
+                                  'Sign up',
+                                  style:  TextStyle(
+                                      color: Colors.indigo[100],
+                                      fontSize: 30))),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           );
         }

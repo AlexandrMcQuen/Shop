@@ -21,9 +21,9 @@ BasketItemModel _$BasketItemModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BasketItemModel {
   int? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
+  int? get price => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
-  ItemModel? get items => throw _privateConstructorUsedError;
+  ItemModel? get product => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,9 +36,9 @@ abstract class $BasketItemModelCopyWith<$Res> {
   factory $BasketItemModelCopyWith(
           BasketItemModel value, $Res Function(BasketItemModel) then) =
       _$BasketItemModelCopyWithImpl<$Res>;
-  $Res call({int? id, String? title, int? quantity, ItemModel? items});
+  $Res call({int? id, int? price, int? quantity, ItemModel? product});
 
-  $ItemModelCopyWith<$Res>? get items;
+  $ItemModelCopyWith<$Res>? get product;
 }
 
 /// @nodoc
@@ -53,38 +53,38 @@ class _$BasketItemModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
+    Object? price = freezed,
     Object? quantity = freezed,
-    Object? items = freezed,
+    Object? product = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int?,
       quantity: quantity == freezed
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int?,
-      items: items == freezed
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
+      product: product == freezed
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
               as ItemModel?,
     ));
   }
 
   @override
-  $ItemModelCopyWith<$Res>? get items {
-    if (_value.items == null) {
+  $ItemModelCopyWith<$Res>? get product {
+    if (_value.product == null) {
       return null;
     }
 
-    return $ItemModelCopyWith<$Res>(_value.items!, (value) {
-      return _then(_value.copyWith(items: value));
+    return $ItemModelCopyWith<$Res>(_value.product!, (value) {
+      return _then(_value.copyWith(product: value));
     });
   }
 }
@@ -96,10 +96,10 @@ abstract class _$$_BasketItemModelCopyWith<$Res>
           _$_BasketItemModel value, $Res Function(_$_BasketItemModel) then) =
       __$$_BasketItemModelCopyWithImpl<$Res>;
   @override
-  $Res call({int? id, String? title, int? quantity, ItemModel? items});
+  $Res call({int? id, int? price, int? quantity, ItemModel? product});
 
   @override
-  $ItemModelCopyWith<$Res>? get items;
+  $ItemModelCopyWith<$Res>? get product;
 }
 
 /// @nodoc
@@ -116,26 +116,26 @@ class __$$_BasketItemModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
+    Object? price = freezed,
     Object? quantity = freezed,
-    Object? items = freezed,
+    Object? product = freezed,
   }) {
     return _then(_$_BasketItemModel(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int?,
       quantity: quantity == freezed
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int?,
-      items: items == freezed
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
+      product: product == freezed
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
               as ItemModel?,
     ));
   }
@@ -146,9 +146,9 @@ class __$$_BasketItemModelCopyWithImpl<$Res>
 class _$_BasketItemModel implements _BasketItemModel {
   _$_BasketItemModel(
       {required this.id,
-      required this.title,
+      required this.price,
       required this.quantity,
-      required this.items});
+      required this.product});
 
   factory _$_BasketItemModel.fromJson(Map<String, dynamic> json) =>
       _$$_BasketItemModelFromJson(json);
@@ -156,15 +156,15 @@ class _$_BasketItemModel implements _BasketItemModel {
   @override
   final int? id;
   @override
-  final String? title;
+  final int? price;
   @override
   final int? quantity;
   @override
-  final ItemModel? items;
+  final ItemModel? product;
 
   @override
   String toString() {
-    return 'BasketItemModel(id: $id, title: $title, quantity: $quantity, items: $items)';
+    return 'BasketItemModel(id: $id, price: $price, quantity: $quantity, product: $product)';
   }
 
   @override
@@ -173,9 +173,9 @@ class _$_BasketItemModel implements _BasketItemModel {
         (other.runtimeType == runtimeType &&
             other is _$_BasketItemModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.quantity, quantity) &&
-            const DeepCollectionEquality().equals(other.items, items));
+            const DeepCollectionEquality().equals(other.product, product));
   }
 
   @JsonKey(ignore: true)
@@ -183,9 +183,9 @@ class _$_BasketItemModel implements _BasketItemModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(quantity),
-      const DeepCollectionEquality().hash(items));
+      const DeepCollectionEquality().hash(product));
 
   @JsonKey(ignore: true)
   @override
@@ -203,9 +203,9 @@ class _$_BasketItemModel implements _BasketItemModel {
 abstract class _BasketItemModel implements BasketItemModel {
   factory _BasketItemModel(
       {required final int? id,
-      required final String? title,
+      required final int? price,
       required final int? quantity,
-      required final ItemModel? items}) = _$_BasketItemModel;
+      required final ItemModel? product}) = _$_BasketItemModel;
 
   factory _BasketItemModel.fromJson(Map<String, dynamic> json) =
       _$_BasketItemModel.fromJson;
@@ -213,11 +213,11 @@ abstract class _BasketItemModel implements BasketItemModel {
   @override
   int? get id;
   @override
-  String? get title;
+  int? get price;
   @override
   int? get quantity;
   @override
-  ItemModel? get items;
+  ItemModel? get product;
   @override
   @JsonKey(ignore: true)
   _$$_BasketItemModelCopyWith<_$_BasketItemModel> get copyWith =>

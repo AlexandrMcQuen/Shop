@@ -9,17 +9,17 @@ part of 'basket_item_model.dart';
 _$_BasketItemModel _$$_BasketItemModelFromJson(Map<String, dynamic> json) =>
     _$_BasketItemModel(
       id: json['id'] as int?,
-      title: json['title'] as String?,
+      price: json['price'] as int?,
       quantity: json['quantity'] as int?,
-      items: json['items'] == null
+      product: json['product'] == null
           ? null
-          : ItemModel.fromJson(json['items'] as Map<String, dynamic>),
+          : ItemModel.fromJson(json['product'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_BasketItemModelToJson(_$_BasketItemModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
+      'price': instance.price,
       'quantity': instance.quantity,
-      'items': instance.items,
+      'product': instance.product,
     };

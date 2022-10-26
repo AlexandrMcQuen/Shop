@@ -98,7 +98,7 @@ class BasketCubit extends Cubit<BasketState> {
 
       if (basketResult!.items.isNotEmpty) {
         emit(LoadedBasketState(loadedBasket: basketResult));
-        respBasketProducts.addAll(basketResult.items.map((e) => e!.item?.id));
+        respBasketProducts.addAll(basketResult.items.map((e) => e?.id));
       }
       else {
         emit(const EmptyBasketState());
@@ -138,8 +138,8 @@ class BasketCubit extends Cubit<BasketState> {
   Future<void> deleteFromBasket({required int id}) async{
     emit(const StartChangeQuantityBasketState());
     await basketRep.deleteItem(itemId: id);
-    await fetchBasket();
     respBasketProducts.remove(id);
+    await fetchBasket();
     emit(const StopChangeQuantityBasketState());
   }
 
